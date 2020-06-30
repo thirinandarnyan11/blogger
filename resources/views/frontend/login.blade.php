@@ -7,12 +7,12 @@
     <title>Sign Up Form by Colorlib</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{asset('logintemplate/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
     <link rel="stylesheet" href="css/animate.css">
 
 
     <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{asset('logintemplate/css/style.css')}}">
 </head>
 <body>
 
@@ -41,14 +41,9 @@
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
                             </div>
-                            <!-- <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
-                             -->
                              <div class="form-group">
                                 <input type="radio" name="agree-term" id="agree-term" class="agree-term" />Blogger
-                                <input type="radio" name="agree-term" id="agree-term" class="agree-term" />Customer
+                                <input type="radio" name="agree-term" id="agree-term" class="agree-term" />User
                             </div>
 
                             <div class="form-group">
@@ -70,7 +65,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="images/signin_image.jpg" alt="sing up image"></figure>
+                        <figure><img src="{{asset('logintemplate/images/signin_image.jpg')}}" alt="sing up image"></figure>
                         <a href="#" class="signup-image-link  login">I am already member</a>
                     </div>
                 </div>
@@ -82,7 +77,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="images/signin_image.jpg" alt="sing up image"></figure>
+                        <figure><img src="{{asset('logintemplate/images/signin_image.jpg')}}" alt="sing up image"></figure>
                         <a href="#" class="signup-image-link create">Create an account</a>
                     </div>
 
@@ -121,7 +116,7 @@
     </div>
 
     <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{asset('logintemplate/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('logintemplate/js/main.js')}}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

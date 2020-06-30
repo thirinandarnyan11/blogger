@@ -25,3 +25,6 @@ Route::get('bloggercontent',function(){
 Route::get('video',function(){
 	return view('frontend.video')->name('video');
 });
+Route::get('login',function(){
+	return view('frontend.login');
+});
