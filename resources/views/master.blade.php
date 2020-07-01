@@ -9,7 +9,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title></title>
+  <title>SB Admin 2 - Dashboard</title>
+
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('backendtemplate/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
