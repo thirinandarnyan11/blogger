@@ -22,9 +22,4 @@ Route::get('/',function(){
 Route::get('bloggercontent',function(){
 	return view('frontend.blogger')->name('blogger');
 });
-Route::get('video',function(){
-	return view('frontend.video')->name('video');
-});
-Route::get('login',function(){
-	return view('frontend.login');
-});
+
