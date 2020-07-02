@@ -41,18 +41,17 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav nav ml-auto">
 					<li class="nav-item"><a href="index.html" class="nav-link"><span><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</span></a></li>
-					<li class="nav-item"><a href="" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Video</span></a></li>
+					<li class="nav-item"><a href="{{route('video_show')}}" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Video</span></a></li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save</a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
-			              	<a class="dropdown-item" href=""><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Post</span></a>
-			                <a class="dropdown-item" href=""><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Video</span></a>
+			              	<a class="dropdown-item" href="{{route('saved_post')}}"><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Post</span></a>
+			                <a class="dropdown-item" href="{{route('saved_video')}}"><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Video</span></a>
 			              </div>
 			          </li>
 					<li class="nav-item dropdown">
               			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thet Thet</a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
-			              	<a class="dropdown-item" href="right-sidebar.html">Profile</a>
 			                <a class="dropdown-item" href="left-sidebar.html">Logout</a>
 			              </div>
             		</li>

@@ -1,65 +1,10 @@
 @extends('frontend.master')
 @section('usercontent')
-<div class="row">
-	<div class="col-lg-3 d-lg-block d-md-none d-sm-none">
-		<div class="popular">
-			<h6 class="ml-2">Popular Blogger</h6>
-			<section class="comments_section" >
-				<ul class="comment_list">
-					<li>
-						<div class="comment_card" data-depth="0">
-							<figure class="figure">
-								<img class="img-fluid blog_img" src="{{asset('frontendtemplate/usertemplate/images/staff-2.jpg')}}" alt="Naveen Pantra"/>
-								<figcaption class="fig_caption">
-									<h6 class="name mt-2 ml-3">Naveen Pantra</h6>
-
-									<p class="ml-4"><a href="author.html" class="btn">View Blog Site</a></p>
-
-								</figcaption>
-							</figure>
-
-						</div>
-					</li>
-				</ul> 
-			</section>
-			<section class="comments_section">
-				<ul class="comment_list">
-					<li>
-						<div class="comment_card" data-depth="0">
-							<figure class="figure">
-								<img class="img-fluid blog_img" src="{{asset('frontendtemplate/usertemplate/images/staff-2.jpg')}}" alt="Naveen Pantra"/>
-								<figcaption class="fig_caption">
-									<h6 class="name mt-2 ml-3">Naveen Pantra</h6>
-									<p class="ml-4"><a href="author.html" class="btn">View Blog Site</a></p>
-
-								</figcaption>
-							</figure>
-
-						</div>
-					</li>
-				</ul> 
-			</section>
-			<section class="comments_section">
-				<ul class="comment_list">
-					<li>
-						<div class="comment_card" data-depth="0">
-							<figure class="figure">
-								<img class="img-fluid blog_img" src="{{asset('frontendtemplate/usertemplate/images/staff-2.jpg')}}" alt="Naveen Pantra"/>
-								<figcaption class="fig_caption">
-									<h6 class="name mt-2 ml-3">Naveen Pantra</h6>
-									<p class="ml-4"><a href="author.html" class="btn">View Blog Site</a></p>
-
-								</figcaption>
-							</figure>
-
-						</div>
-					</li>
-				</ul> 
-			</section>
+<div class="container post">
+	<div class="row">
+		<div class="col-lg-3 d-lg-block d-md-none d-sm-none">
 		</div>
-
-	</div>
-	<div class="col-lg-5 col-md-12 col-sm-12 d-block">
+		<div class="col-lg-6 col-md-12 col-sm-12 d-block">
 		<div class="card shadow-lg p-3 mb-5 bg-white rounded">
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-3">
@@ -150,47 +95,8 @@
 		</div>
 
 	</div>
-	<div class="col-lg-4 d-lg-block d-md-none d-sm-none">
-		<div class="popular">
-			<h6>Popular Blogger's Video</h6>
-			<section class="comments_section">
-				<ul class="comment_list">
-					<li>
-						<div class="comment_card" data-depth="0">
-							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<p class="video_name mt-5 ml-2">Naveen Pantra</p>
-
-								</figcaption>
-							</figure>
-
-						</div>
-						<div class="comment_card" data-depth="0">
-							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<p class="video_name mt-5 ml-2">Naveen Pantra</p>
-
-								</figcaption>
-							</figure>
-
-						</div>
-						<div class="comment_card" data-depth="0">
-							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<p class="video_name mt-5 ml-2">Naveen Pantra</p>
-
-								</figcaption>
-							</figure>
-
-						</div>
-					</li>
-				</ul> 
-			</section>
-
+		<div class="col-lg-3 d-lg-block d-md-none d-sm-none">
 		</div>
-	</div>
+	</div>	
 </div>
 @endsection
