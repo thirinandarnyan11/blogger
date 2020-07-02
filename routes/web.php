@@ -23,3 +23,7 @@ Route::get('bloggercontent',function(){
 	return view('frontend.blogger')->name('blogger');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
