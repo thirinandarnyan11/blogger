@@ -29,6 +29,11 @@ Route::get('savepost','frontend\FrontendController@saved_post')->name('saved_pos
 Route::get('blogger','frontend\FrontendController@blogger_content')->name('blogger');
 
 
+Route::resource('post','frontend\BloggerController');
+
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
