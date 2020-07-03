@@ -16,8 +16,8 @@ class CreateUserDetailsTable extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->text('cover_photo')->nullable();
-            $table->text('profile')->nullable();
+            $table->text('cover_photo')->default('avatar.png');
+            $table->text('profile')->default('avatar.png');
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->date('dob')->nullable();

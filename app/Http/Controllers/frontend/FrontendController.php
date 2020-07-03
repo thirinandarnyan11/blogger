@@ -4,9 +4,15 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Role;
 
 class FrontendController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth')->only('user');
+    }
+
     function index()
     {
     	return view('frontend.user');

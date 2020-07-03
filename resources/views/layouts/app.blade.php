@@ -18,13 +18,22 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{asset('logintemplate/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
+    <link rel="stylesheet" href="{{asset('logintemplate/css/animate.css')}}">
+
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{asset('logintemplate/css/style.css')}}">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    BB
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -76,5 +85,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{asset('logintemplate/vendor/jquery/jquery.min.js')}}"></script>
 </body>
 </html>

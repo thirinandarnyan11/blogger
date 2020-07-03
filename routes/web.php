@@ -19,17 +19,17 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/',function(){
 // 	return view('frontend.user');
 // });
-
+Route::middleware('auth')->group(function(){
 Route::get('/index','frontend\FrontendController@index')->name('index');
 Route::get('videoshow','frontend\FrontendController@video_show')->name('video_show');
 Route::get('savevideo','frontend\FrontendController@saved_video')->name('saved_video');
 Route::get('savepost','frontend\FrontendController@saved_post')->name('saved_post');
+});
 
-<<<<<<< HEAD
 Route::get('blogger','frontend\FrontendController@blogger_content')->name('blogger');
-=======
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> 456f8ac8d29f1d9b14e342a49df0327e887126e5
+

@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\User_detail;
+use App\Role;
 
 class RegisterController extends Controller
 {
@@ -52,7 +54,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 
@@ -64,10 +66,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // dd($data);
+        
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'radiorole' => $data['radiorole'],
         ]);
+        $userdetail=new User_detail;
+        $userdetail->user_id=$user->id;
+        $userdetail->phone=$data['phone'];
+        $userdetail->address=$data['address'];
+        $userdetail->dob=$data['dob'];
+        $userdetail->save();
+       if($data['radiorole'] == 'user'){
+            $user->assignRole('user');  
+       }
+       else{
+        return $user;
+       }
+        return $user;
     }
 }
