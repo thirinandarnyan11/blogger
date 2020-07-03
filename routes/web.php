@@ -25,11 +25,11 @@ Route::get('videoshow','frontend\FrontendController@video_show')->name('video_sh
 Route::get('savevideo','frontend\FrontendController@saved_video')->name('saved_video');
 Route::get('savepost','frontend\FrontendController@saved_post')->name('saved_post');
 
-<<<<<<< HEAD
 Route::get('blogger','frontend\FrontendController@blogger_content')->name('blogger');
-=======
+Route::resource('post','frontend\BloggerController');
+
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> 456f8ac8d29f1d9b14e342a49df0327e887126e5

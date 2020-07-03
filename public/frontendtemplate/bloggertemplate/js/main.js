@@ -303,6 +303,42 @@
 
 
 
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+
+  $("#uploadFile").change(function(){
+
+     $('#image_preview').html("");
+
+     var total_file=document.getElementById("uploadFile").files.length;
+
+     for(var i=0;i<total_file;i++)
+
+     {
+
+      $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'>");
+
+     }
+
+  });
+
+
+
+  $('form').ajaxForm(function() 
+
+   {
+
+    alert("Uploaded SuccessFully");
+
+   }); 
+
+
+
+
 
 })(jQuery);
 
