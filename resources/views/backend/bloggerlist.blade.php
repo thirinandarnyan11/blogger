@@ -30,13 +30,11 @@
 			<td>{{$i++}}</td>
 			<td>{{$row->name}}</td>
 			<td>{{$row->email}}</td>
-			<td>dfsdf</td>
-			<td>dfsdf</td>
-			<td>dfsdf</td>
-			{{-- <td>{{$user_details->phone}}</td>
-			<td>{{$user_details->address}}</td>
-			<td>{{$user_details->dob}}</td>
-			 --}}<td><a href="{{route('bloggerlist.show',$row->id)}}" class="btn btn-warning" style="display: inline;">Accept </a>
+			<td>{{$row->user_details->phone}}</td>
+			<td>{{$row->user_details->address}}</td>
+			<td>{{$row->user_details->dob}}</td>
+
+			<td><a href="{{route('bloggerlist.show',$row->id)}}" class="btn btn-warning" style="display: inline;">Accept </a>
 			<form method="POST" action="{{route('bloggerlist.destroy',$row->id)}}" onsubmit="return confirm('Are you sure denied this blogger?')">
 				@csrf
 				@method('DELETE')

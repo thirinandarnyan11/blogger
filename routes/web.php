@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 // 	return view('frontend.user');
 // });
 
+Route::middleware('auth')->group(function(){
+
+
 // Route::middleware('role:user')->group(function(){
 
 Route::get('/index','frontend\FrontendController@index')->name('index');
@@ -33,13 +36,13 @@ Route::get('/videoshow/action','frontend\LiveSearchController@action')->name('vi
 
 Route::get('savevideo','frontend\FrontendController@saved_video')->name('saved_video');
 Route::get('savepost','frontend\FrontendController@saved_post')->name('saved_post');
-/*});*/
-
+/*});
+*/
 Route::get('backend','backend\BackendController@index')->name('backend');
 
 Route::resource('bloggerlist','backend\BloggerListController');
 
-Route::post('/sendemail/send','backend\SendEmailController@send');
+Route::post('/sendemail/send/{id}','backend\SendEmailController@send');
 
 Route::resource('categories','backend\CategoryController');
 
@@ -47,6 +50,15 @@ Route::get('blogger','frontend\FrontendController@blogger_content')->name('blogg
 
 
 Route::resource('post','frontend\BloggerController');
+
+
+Route::resource('userpost','frontend\PostController');
+Route::get('/post/show/{id}', 'frontend\PostController@show')->name('post.show');
+
+Route::post('/comment/store', 'frontend\CommentController@store')->name('comment.add');
+Route::post('/reply/store', 'frontend\CommentController@replyStore')->name('reply.add');
+
+
 
 Auth::routes();
 

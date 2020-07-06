@@ -37,7 +37,7 @@
                 @endif
                 <div class="container">
                     <div class="row">
-                        <form method="post" action="{{url('sendemail/send')}}">
+                        <form method="post" action="{{url('sendemail/send',$user->id)}}">
                     {{csrf_field()}}
 
                             <div class="form-group">
