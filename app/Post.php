@@ -8,4 +8,10 @@ class Post extends Model
 {
     use SoftDeletes;
     protected $fillable=['post_content','categories_id','user_id','photo','video'];
+
+        public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
 }

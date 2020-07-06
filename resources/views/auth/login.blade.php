@@ -84,7 +84,7 @@
                     <div class="signin-form ftco-animate">
                         <h2 class="form-title">{{ __('Login') }}</h2>
                         <form method="POST" action="{{ route('login') }}">
-                            @csrf
+                        @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-email material-icons-name"></i></label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}" requiredautocomplete="email" autofocus="" placeholder="&nbsp;&nbsp;Enter Email"/>

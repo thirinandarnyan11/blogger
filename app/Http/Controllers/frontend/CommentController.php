@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
-use App\User;
-use DB;
-
-use App\User_detail;
-class BloggerListController extends Controller
+use App\Comment;
+use App\Post;
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,22 +15,7 @@ class BloggerListController extends Controller
      */
     public function index()
     {
-         
-         $user_details=User_detail::all();
-         /*$users=User::all();*/
-
-         /*$users = DB::table('users')->WhereNotNull("roles")->get();*/
-
-        /*User::whereNotExistes(function($query){
-            $query->select(DB::raw(1))
-                  ->from('roles')
-                  ->whereRaw('users.id = roles.id');})
-                  ->get();
-        */   $users=User::doesntHave('roles')->get() ;
-            return view('backend.bloggerlist',compact('users'));
-            
-                
-        
+        //
     }
 
     /**
@@ -54,8 +36,30 @@ class BloggerListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+                $comment = new Comment;
+        $comment->content = $request->get('comment_body');
+        $comment->user()->associate($request->user());
+        $post = Post::find($request->get('post_id'));
+        $post->comments()->save($comment);
+
+        return back();
+
     }
+
+        public function replyStore(Request $request)
+    {
+        $reply = new Comment();
+        $reply->content = $request->get('comment_body');
+        $reply->user()->associate($request->user());
+        $reply->parent_id = $request->get('comment_id');
+        $post = Post::find($request->get('post_id'));
+
+        $post->comments()->save($reply);
+
+        return back();
+
+    }
+
 
     /**
      * Display the specified resource.
@@ -65,9 +69,7 @@ class BloggerListController extends Controller
      */
     public function show($id)
     {
-        $user=User::find($id);
-        return view('backend.bloggerdetail',compact('user'));
-        
+        //
     }
 
     /**
@@ -101,8 +103,6 @@ class BloggerListController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return redirect()->route('bloggerlist.index');
+        //
     }
 }
