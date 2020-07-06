@@ -4,10 +4,9 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Post;
-use DB;
+use App\Role;
 
-class BloggerController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,8 @@ class BloggerController extends Controller
      */
     public function index()
     {
-        return view('frontend.createpost');
+        $roles=Role::all();
+        return view('frontend.user',compact('roles'));
     }
 
     /**
@@ -37,38 +37,9 @@ class BloggerController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
-            'post_content' => 'required',
-            'uploadFile' => 'required',
-
-        ]);
-
-        if($request->hasfile('uploadFile'))
-        {   
-            $i=1;
-         
-            foreach($request->file('uploadFile') as $file)
-            {
-                $name = time().$i.'.'.$file->extension();
-                $file->move(public_path('images/post'), $name);  
-                $data[] = 'images/post/'.$name;
-                $i++;
-            }
-           
-        }
-
-
-        $post = new Post;
-        $post->categories_id = 1;
-        $post->user_id =1;
-        $post->post_content  = $request->post_content;
-        $post->photo = json_encode($data);
-
-
-        $post->save();
-
-        return redirect()->route('post.index')->with('success', 'An item have been successfully added');
+        //
     }
+
     /**
      * Display the specified resource.
      *

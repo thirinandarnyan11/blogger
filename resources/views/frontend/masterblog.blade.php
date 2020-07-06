@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{asset('frontendtemplate/bloggertemplate/css/icomoon.css')}}">
   <link rel="stylesheet" href="{{asset('frontendtemplate/bloggertemplate/css/profile.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('frontendtemplate/bloggertemplate/css/style.css')}}">
+
   @yield('style')
 </head>
 <body>
@@ -34,7 +35,7 @@
          <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nay Chi Oo</a>
            <div class="dropdown-menu" aria-labelledby="dropdown04">
-             <a class="dropdown-item" href="left-sidebar.html">Logout</a>
+             <a class="dropdown-item" href="">Logout</a>
            </div>
          </li>
        </ul>
@@ -64,5 +65,10 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')}}"></script>
   <script src="{{asset('frontendtemplate/bloggertemplate/js/google-map.js')}}"></script>
   <script src="{{asset('frontendtemplate/bloggertemplate/js/main.js')}}"></script>
+ <script src="{{asset('frontendtemplate/bloggertemplate/js/summernote.js')}}"></script>
+ <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1. 
+  4/jquery.js"></script>-->
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script> 
 </body>
 </html>

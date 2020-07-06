@@ -20,8 +20,14 @@ use Illuminate\Support\Facades\Route;
 // 	return view('frontend.user');
 // });
 Route::middleware('auth')->group(function(){
+
 Route::get('/index','frontend\FrontendController@index')->name('index');
+
+Route::resource('roles','frontend\RoleController');
 Route::get('videoshow','frontend\FrontendController@video_show')->name('video_show');
+
+Route::get('/videoshow/action','frontend\LiveSearchController@action')->name('videoshow.action');
+
 Route::get('savevideo','frontend\FrontendController@saved_video')->name('saved_video');
 Route::get('savepost','frontend\FrontendController@saved_post')->name('saved_post');
 });
@@ -30,9 +36,6 @@ Route::get('blogger','frontend\FrontendController@blogger_content')->name('blogg
 
 
 Route::resource('post','frontend\BloggerController');
-
-
-
 
 Auth::routes();
 

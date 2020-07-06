@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class SavePost extends Model
 {
     use SoftDeletes;
-    protected $fillable=['id','post_id','user_id'];
+    
+    protected $fillable=[
+    	'id','post_id','user_id'
+    ];
 }
