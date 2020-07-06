@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 // 	return view('frontend.user');
 // });
 
-Route::middleware('auth')->group(function(){
+//Route::middleware('auth')->group(function(){
 
 
 // Route::middleware('role:user')->group(function(){
