@@ -19,13 +19,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/',function(){
 // 	return view('frontend.user');
 // });
-<<<<<<< HEAD
-Route::middleware('auth')->group(function(){
 
-=======
 // Route::middleware('role:user')->group(function(){
->>>>>>> 3f75847b5074b4ebccf2fed565b6e3e874eccd94
+
 Route::get('/index','frontend\FrontendController@index')->name('index');
+Route::get('/index/useraction','frontend\LiveSearchController@useraction')->name('index.useraction');
+
 
 Route::resource('roles','frontend\RoleController');
 Route::get('videoshow','frontend\FrontendController@video_show')->name('video_show');
@@ -51,5 +50,5 @@ Route::resource('post','frontend\BloggerController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 

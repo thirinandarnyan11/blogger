@@ -66,9 +66,12 @@
   <script src="{{asset('frontendtemplate/bloggertemplate/js/google-map.js')}}"></script>
   <script src="{{asset('frontendtemplate/bloggertemplate/js/main.js')}}"></script>
  <script src="{{asset('frontendtemplate/bloggertemplate/js/summernote.js')}}"></script>
- <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1. 
-  4/jquery.js"></script>-->
+ 
+ <link href="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css">
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.
+  4/jquery.js"></script>
   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
-  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script> 
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 </body>
 </html>
