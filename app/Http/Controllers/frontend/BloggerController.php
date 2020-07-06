@@ -57,7 +57,10 @@ class BloggerController extends Controller
            
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3f75847b5074b4ebccf2fed565b6e3e874eccd94
         $post = new Post;
         $post->categories_id = 1;
         $post->user_id =1;

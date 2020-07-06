@@ -33,7 +33,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">BB Admin <sup>2</sup></div>
       </a>
 
       <!-- Divider -->
@@ -63,15 +63,15 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="">Users</a>
-            <a class="collapse-item" href="">Items</a>
-            <a class="collapse-item" href="">Orders</a>
+            <a class="collapse-item" href="{{route('bloggerlist.index')}}">Blogger List</a>
+            <a class="collapse-item" href="">User List</a>
+            <a class="collapse-item" href="{{route('categories.index')}}">Categories</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
+      {{--<li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-cog"></i>
           <span>Settings</span>
@@ -84,7 +84,7 @@
             <a class="collapse-item" href="">Sub Categories</a>
           </div>
         </div>
-      </li>
+      </li>--}}
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -189,7 +189,7 @@
             </li>
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
+           {{-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
@@ -235,10 +235,10 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
-            </li>
+            </li>--}}
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            {{--<li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
@@ -291,7 +291,7 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>
-            </li>
+            </li>--}}
 
             <div class="topbar-divider d-none d-sm-block"></div>
 

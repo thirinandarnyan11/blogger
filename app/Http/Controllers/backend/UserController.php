@@ -4,21 +4,8 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use App\category;
 
-class CategoryController extends Controller
-{
-      public function index()
-    {
-        $categories=Category::all();
-        return view('frontend.createpost',compact('categories'));
-    }
-
-=======
-use App\Category;
-
-class CategoryController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,8 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('backend.categories.index',compact('categories'));
+        //
     }
 
     /**
@@ -38,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        //
     }
 
     /**
@@ -49,19 +35,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
-        $request->validate([
-            'name' => 'required|min:5|max:191',
-        ]);
-
-        // Data insert
-        $category = new Category;
-        $category->name = $request->name;
-
-        $category->save();
-
-        // Return 
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -83,9 +57,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        // dd($category);
-        return view('backend.categories.edit',compact('category'));
+        //
     }
 
     /**
@@ -97,20 +69,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Validation
-        $request->validate([
-            'name' => 'required|min:5|max:191',
-        ]);
-
-
-        // Data update
-        $category = Category::find($id);
-        $category->name = $request->name;
-
-        $category->save();
-
-        // Return 
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -121,9 +80,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        return redirect()->route('categories.index');
+        //
     }
->>>>>>> 3f75847b5074b4ebccf2fed565b6e3e874eccd94
 }

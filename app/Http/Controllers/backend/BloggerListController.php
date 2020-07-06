@@ -3,22 +3,12 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use App\category;
+use App\User;
 
-class CategoryController extends Controller
-{
-      public function index()
-    {
-        $categories=Category::all();
-        return view('frontend.createpost',compact('categories'));
-    }
-
-=======
-use App\Category;
-
-class CategoryController extends Controller
+use App\User_detail;
+class BloggerListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,8 +17,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('backend.categories.index',compact('categories'));
+         
+         $user_details=User_detail::all();
+
+         $users = User::role("user")->get();
+        
+
+            return view('backend.bloggerlist',compact('users'));
+            
+                
+        
     }
 
     /**
@@ -38,7 +36,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        //
     }
 
     /**
@@ -49,19 +47,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation
-        $request->validate([
-            'name' => 'required|min:5|max:191',
-        ]);
-
-        // Data insert
-        $category = new Category;
-        $category->name = $request->name;
-
-        $category->save();
-
-        // Return 
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -72,7 +58,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=User::find($id);
+        return view('backend.bloggerdetail',compact('user'));
+        
     }
 
     /**
@@ -83,9 +71,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        // dd($category);
-        return view('backend.categories.edit',compact('category'));
+        //
     }
 
     /**
@@ -97,20 +83,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Validation
-        $request->validate([
-            'name' => 'required|min:5|max:191',
-        ]);
-
-
-        // Data update
-        $category = Category::find($id);
-        $category->name = $request->name;
-
-        $category->save();
-
-        // Return 
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -121,9 +94,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        return redirect()->route('categories.index');
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('bloggerlist.index');
     }
->>>>>>> 3f75847b5074b4ebccf2fed565b6e3e874eccd94
 }
