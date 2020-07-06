@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
-use App\Post;
+use App\User;
 
-class BloggerController extends Controller
+use App\User_detail;
+class BloggerListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,16 @@ class BloggerController extends Controller
      */
     public function index()
     {
-        return view('frontend.createpost');
+         
+         $user_details=User_detail::all();
+
+         $users = User::role("user")->get();
+        
+
+            return view('backend.bloggerlist',compact('users'));
+            
+                
+        
     }
 
     /**
@@ -36,38 +47,9 @@ class BloggerController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
-            'post_content' => 'required',
-            'uploadFile' => 'required',
-
-
-        ]);
-
-        if($request->hasfile('uploadFile'))
-        {   
-            $i=1;
-         
-            foreach($request->file('uploadFile') as $file)
-            {
-                $name = time().$i.'.'.$file->extension();
-                $file->move(public_path('images/post'), $name);  
-                $data[] = 'images/post/'.$name;
-                $i++;
-            }
-           
-        }
-
-        $post = new Post;
-        $post->categories_id = 1;
-        $post->user_id =1;
-        $post->post_content  = $request->post_content;
-        $post->photo = json_encode($data);
-
-
-        $post->save();
-
-        return redirect()->route('post.index')->with('success', 'An item have been successfully added');
+        //
     }
+
     /**
      * Display the specified resource.
      *
@@ -76,7 +58,9 @@ class BloggerController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=User::find($id);
+        return view('backend.bloggerdetail',compact('user'));
+        
     }
 
     /**
@@ -110,6 +94,8 @@ class BloggerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('bloggerlist.index');
     }
 }

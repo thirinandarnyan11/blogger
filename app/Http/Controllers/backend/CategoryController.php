@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Post;
+use App\Category;
 
-class BloggerController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class BloggerController extends Controller
      */
     public function index()
     {
-        return view('frontend.createpost');
+        $categories = Category::all();
+        return view('backend.categories.index',compact('categories'));
     }
 
     /**
@@ -25,7 +26,7 @@ class BloggerController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.categories.create');
     }
 
     /**
@@ -36,38 +37,21 @@ class BloggerController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
-            'post_content' => 'required',
-            'uploadFile' => 'required',
-
-
+        // Validation
+        $request->validate([
+            'name' => 'required|min:5|max:191',
         ]);
 
-        if($request->hasfile('uploadFile'))
-        {   
-            $i=1;
-         
-            foreach($request->file('uploadFile') as $file)
-            {
-                $name = time().$i.'.'.$file->extension();
-                $file->move(public_path('images/post'), $name);  
-                $data[] = 'images/post/'.$name;
-                $i++;
-            }
-           
-        }
+        // Data insert
+        $category = new Category;
+        $category->name = $request->name;
 
-        $post = new Post;
-        $post->categories_id = 1;
-        $post->user_id =1;
-        $post->post_content  = $request->post_content;
-        $post->photo = json_encode($data);
+        $category->save();
 
-
-        $post->save();
-
-        return redirect()->route('post.index')->with('success', 'An item have been successfully added');
+        // Return 
+        return redirect()->route('categories.index');
     }
+
     /**
      * Display the specified resource.
      *
@@ -87,7 +71,9 @@ class BloggerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        // dd($category);
+        return view('backend.categories.edit',compact('category'));
     }
 
     /**
@@ -99,7 +85,20 @@ class BloggerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validation
+        $request->validate([
+            'name' => 'required|min:5|max:191',
+        ]);
+
+
+        // Data update
+        $category = Category::find($id);
+        $category->name = $request->name;
+
+        $category->save();
+
+        // Return 
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -110,6 +109,8 @@ class BloggerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('categories.index');
     }
 }
