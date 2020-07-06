@@ -1,9 +1,9 @@
 /**
  * Variables
  */
-const signupButton = document.getElementById('signup-button'),
-    loginButton = document.getElementById('login-button'),
-    userForms = document.getElementById('user_options-forms')
+var signupButton = document.getElementById('signup-button');
+var  loginButton = document.getElementById('login-button');
+ var   userForms = document.getElementById('user_options-forms');
 
 /**
  * Add event listener to the "Sign Up" button

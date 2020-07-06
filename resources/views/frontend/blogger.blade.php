@@ -17,7 +17,7 @@
 						<span class="big">Create</span>
 						<h1 class="mb-4"><a href="#">Advice customer best comestics</a></h1>
 						<p class="mb-4">Change customer most beautiful person</p>
-						<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#createblog" data-whatever="@getbootstrap">Create Your Blog</i></button>
+						<a href="{{route('post.index')}}"><button type="button" class="btn btn-outline-primary btn-md">Create Your Blog</button></a>
 					<div class="modal fade" id="createblog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">

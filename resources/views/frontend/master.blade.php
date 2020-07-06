@@ -31,19 +31,18 @@
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/icomoon.css')}}">
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/style.css')}}">
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
 
 
 	<nav class="navbar navbar-expand-lg  ftco_navbar bg-light ftco-navbar-light site-navbar-target" id="ftco-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="index.html">BB</a>
-			<input type="text" id="searchInput" placeholder="Search..">
+			<input type="text"  name="search" id="search" placeholder="Search by blogger & categories name">
 			<div id='submitsearch'
 			style="">
 				<span>Search</span>
 
 			</div>
-
 
 			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> 
@@ -51,7 +50,7 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav nav ml-auto">
-					<li class="nav-item"><a href="index.html" class="nav-link"><span><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</span></a></li>
+					<li class="nav-item"><a href="{{route('index')}}" class="nav-link"><span><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</span></a></li>
 					<li class="nav-item"><a href="{{route('video_show')}}" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Video</span></a></li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save</a>
@@ -63,7 +62,7 @@
 					<li class="nav-item dropdown">
               			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thet Thet</a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
-			                <a class="dropdown-item" href="left-sidebar.html">Logout</a>
+			                <a class="dropdown-item" href="">Logout</a>
 			              </div>
             		</li>
 	          
@@ -80,7 +79,7 @@
 
 
 <!-- loader -->
-{{--<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>--}}
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
 <script src="{{asset('frontendtemplate/usertemplate/js/jquery.min.js')}}"></script>
