@@ -4,30 +4,13 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-use App\category;
+use App\Category;
 
 class CategoryController extends Controller
 {
       public function index()
     {
         $categories=Category::all();
-        return view('frontend.createpost',compact('categories'));
-    }
-
-=======
-use App\Category;
-
-class CategoryController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $categories = Category::all();
         return view('backend.categories.index',compact('categories'));
     }
 
@@ -125,5 +108,4 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('categories.index');
     }
->>>>>>> 3f75847b5074b4ebccf2fed565b6e3e874eccd94
 }

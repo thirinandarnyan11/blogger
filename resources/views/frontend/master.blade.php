@@ -27,7 +27,6 @@
 
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/aos.css')}}">
 
-	<link rel="stylesheet" type="text/css" href="{{asset('frontendtemplate/usertemplate/fontawesome/css/all.min.css')}}">
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/icomoon.css')}}">
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/style.css')}}">
 </head>
@@ -60,9 +59,17 @@
 			              </div>
 			          </li>
 					<li class="nav-item dropdown">
-              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thet Thet</a>
+              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
-			                <a class="dropdown-item" href="">Logout</a>
+			               <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
 			              </div>
             		</li>
 	          
@@ -94,7 +101,6 @@
 <script src="{{asset('frontendtemplate/usertemplate/js/aos.js')}}"></script>
 <script src="{{asset('frontendtemplate/usertemplate/js/jquery.animateNumber.min.js')}}"></script>
 <script src="{{asset('frontendtemplate/usertemplate/js/scrollax.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('frontendtemplate/usertemplate/fontawesome/js/fontawesome.min.js')}}"></script>
 
 <script src="{{asset('frontendtemplate/usertemplate/js/main.js')}}"></script>
 <script type="text/javascript" src="{{asset('frontendtemplate/usertemplate/js/custom.js')}}"></script>

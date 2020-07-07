@@ -19,18 +19,8 @@ class BloggerListController extends Controller
     public function index()
     {
          
-         $user_details=User_detail::all();
-         /*$users=User::all();*/
-
-         /*$users = DB::table('users')->WhereNotNull("roles")->get();*/
-
-        /*User::whereNotExistes(function($query){
-            $query->select(DB::raw(1))
-                  ->from('roles')
-                  ->whereRaw('users.id = roles.id');})
-                  ->get();
-        */   $users=User::doesntHave('roles')->get() ;
-            return view('backend.bloggerlist',compact('users'));
+         $users=User::doesntHave('roles')->get() ;
+         return view('backend.bloggerlist',compact('users'));
             
                 
         

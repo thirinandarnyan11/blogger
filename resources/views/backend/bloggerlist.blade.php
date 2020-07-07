@@ -34,13 +34,13 @@
 			<td>{{$row->user_details->address}}</td>
 			<td>{{$row->user_details->dob}}</td>
 
-			<td><a href="{{route('bloggerlist.show',$row->id)}}" class="btn btn-warning" style="display: inline;">Accept </a>
+			<td><a href="{{route('bloggerlist.show',$row->id)}}" class="btn btn-primary" style="display: inline;"><i class="fas fa-user-check"></i> </a>
+
 			<form method="POST" action="{{route('bloggerlist.destroy',$row->id)}}" onsubmit="return confirm('Are you sure denied this blogger?')">
 				@csrf
 				@method('DELETE')
-				<input type="submit" name="btnsubmit" value="Denied" class="btn btn-danger">
+				<button type="submit" class="btn btn-danger"><i class="fas fa-user-times"></i></button>
 			</form>
-		</td>
 
 		</tr>
 		@endforeach

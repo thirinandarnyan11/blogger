@@ -22,43 +22,41 @@ use Illuminate\Support\Facades\Route;
 
 //Route::middleware('auth')->group(function(){
 
-
-// Route::middleware('role:user')->group(function(){
-
 Route::get('/index','frontend\FrontendController@index')->name('index');
+	
+Route::middleware('role:user')->group(function(){
 
-Route::resource('roles','frontend\RoleController');
-Route::get('videoshow','frontend\FrontendController@video_show')->name('video_show');
-
-Route::get('/videoshow/action','frontend\LiveSearchController@action')->name('videoshow.action');
-
-Route::get('savevideo','frontend\FrontendController@saved_video')->name('saved_video');
-Route::get('savepost','frontend\FrontendController@saved_post')->name('saved_post');
-/*});
-*/
-Route::get('backend','backend\BackendController@index')->name('backend');
-
-Route::resource('bloggerlist','backend\BloggerListController');
-
-Route::post('/sendemail/send/{id}','backend\SendEmailController@send');
-
-Route::resource('categories','backend\CategoryController');
-
-Route::get('blogger','frontend\FrontendController@blogger_content')->name('blogger');
+	Route::get('/index/useraction','frontend\LiveSearchController@useraction')->name('index.useraction');
+	Route::resource('roles','frontend\RoleController');
+	Route::get('videoshow','frontend\FrontendController@video_show')->name('video_show');
+	Route::get('/videoshow/action','frontend\LiveSearchController@action')->name('videoshow.action');
+	Route::get('savevideo','frontend\FrontendController@saved_video')->name('saved_video');
+	Route::get('savepost','frontend\FrontendController@saved_post')->name('saved_post');
+});
 
 
-Route::resource('post','frontend\BloggerController');
+Route::middleware('role:admin')->group(function(){
 
+	Route::get('backend','backend\BackendController@index')->name('backend');
+	Route::resource('bloggerlist','backend\BloggerListController');
+	Route::post('/sendemail/send/{id}','backend\SendEmailController@send');
+	Route::resource('userlist','backend\UserListController');
+	Route::resource('categories','backend\CategoryController');
 
-Route::resource('userpost','frontend\PostController');
+});
+
+Route::middleware('role:blogger')->group(function(){
+
+	Route::get('blogger','frontend\FrontendController@blogger_content')->name('blogger');
+	Route::resource('post','frontend\BloggerController');
+	
+});
+	Route::resource('userpost','frontend\PostController');
 Route::get('/post/show/{id}', 'frontend\PostController@show')->name('post.show');
-
-Route::post('/comment/store', 'frontend\CommentController@store')->name('comment.add');
-Route::post('/reply/store', 'frontend\CommentController@replyStore')->name('reply.add');
-
-
+	Route::post('/comment/store', 'frontend\CommentController@store')->name('comment.add');
+	Route::post('/reply/store', 'frontend\CommentController@replyStore')->name('reply.add');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 

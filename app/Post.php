@@ -15,9 +15,16 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
 
+	 
 
-    protected $fillable=[
-    	'post_content',,'photo','video','categories_id','user_id'
-    ];
+    public function category(){
+	return $this->belongsTo('App\Category');
+	}
 
+    public function user(){
+    return $this->belongsTo('App\User');
+    }
+
+
+    
 }

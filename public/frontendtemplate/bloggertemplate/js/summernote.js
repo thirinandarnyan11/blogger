@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  $('#summernote').summernote({
+  $('#post_content').summernote({
     callbacks: {
       onFileUpload: function(file) {
         myOwnCallBack(file[0]);
@@ -14,6 +14,6 @@ $(document).ready(function(){
 
 
   $('#clear').on('click',function(){
-    $('#summernote').summernote('code',null);
+    $('#post_content').summernote('code',null);
   })
 });

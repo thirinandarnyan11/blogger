@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Role;
 use App\User;
+use App\Post;
+use Auth;
 
 class FrontendController extends Controller
 {
@@ -15,8 +17,11 @@ class FrontendController extends Controller
     }
 
     function index()
+
     {   
-    	return view('frontend.user');
+        
+        $posts=Post::orderBy('id','desc')->get();
+    	return view('frontend.user',compact('posts'));
     }
     function video_show(){
     	return view('frontend.video');
@@ -28,6 +33,9 @@ class FrontendController extends Controller
     	return view('frontend.savedpost');
     }
     function blogger_content(){
-        return view('frontend.blogger');
+        $id=Auth::user()->id;
+        $user=User::find($id);
+        $post=Post::where('user_id',$id)->orderBy('id','desc')->get();
+        return view('frontend.blogger',compact('post','user'));
     }
 }
