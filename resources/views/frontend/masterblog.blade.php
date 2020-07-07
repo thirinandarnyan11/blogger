@@ -32,9 +32,17 @@
          <li class="nav-item"><a href="{{route('blogger')}}" class="nav-link">Home</a></li>
          {{--<li class="nav-item"><a href="author.html" class="nav-link">Other Bloggers</a></li>--}}
          <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nay Chi Oo</a>
+           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
            <div class="dropdown-menu" aria-labelledby="dropdown04">
-             <a class="dropdown-item" href="">Logout</a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
            </div>
          </li>
        </ul>
@@ -59,7 +67,6 @@
   <script src="{{asset('frontendtemplate/bloggertemplate/js/jquery.magnific-popup.min.js')}}"></script>
   <script src="{{asset('frontendtemplate/bloggertemplate/js/aos.js')}}"></script>
   <script src="{{asset('frontendtemplate/bloggertemplate/js/jquery.animateNumber.min.js')}}"></script>
-  <script src="{{asset('frontendtemplate/bloggertemplate/js/bootstrap-datepicker.js')}}"></script>
   <script src="{{asset('frontendtemplate/bloggertemplate/js/scrollax.min.js')}}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')}}"></script>
   <script src="{{asset('frontendtemplate/bloggertemplate/js/google-map.js')}}"></script>
@@ -74,6 +81,7 @@
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
+
 <!-- this file was missing -->
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -81,5 +89,17 @@
 
 <!-- this file was moved after the jQuery Datatables library was laoded -->
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+<!-- this file was missing -->
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+<!-- this file was moved after the jQuery Datatables library was laoded -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css">
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.
+  4/jquery.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+  
 </body>
 </html>

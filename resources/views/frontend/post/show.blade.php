@@ -6,13 +6,29 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <p><b>{{ $post->title }}</b></p>
-                    <p>
-                        {{ $post->content }}
-                    </p>
-                    <hr />
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <img src="{{$post->user->user_details->profile}}" class="img-fluid blogger_img">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 mt-2">
+                        <h4>{{ $post->user->name}}</h4>
+                        <p>
+                            {!! $post->post_content !!}
+                        </p>
+                    </div>
                     <h4>Display Comments</h4>
-                    @include('frontend.partials.comment_replies', ['comments' => $post->comments, 'post_id' => $post->id])
+                                        @foreach($post->comments as $comment)
+                        <div class="display-comment">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <img src="{{$comment->user->user_details->profile}}" class="img-fluid blogger_img">
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 mt-4">
+                    
+                                <strong>{{ $comment->user->name }}</strong>
+                                <p>{{ $comment->content }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+
                     <hr />
                     <h4>Add comment</h4>
                     <form method="post" action="{{ route('comment.add') }}">

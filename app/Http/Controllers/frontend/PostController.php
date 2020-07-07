@@ -14,8 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
-        return view('frontend/post/index',compact('posts'));
+      $posts=Post::orderBy('id','desc')->get();
+        return view('frontend/user/index',compact('posts'));
     }
 
     /**

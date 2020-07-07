@@ -27,7 +27,6 @@
 
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/aos.css')}}">
 
-	<link rel="stylesheet" type="text/css" href="{{asset('frontendtemplate/usertemplate/fontawesome/css/all.min.css')}}">
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/icomoon.css')}}">
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/style.css')}}">
 </head>
@@ -40,42 +39,57 @@
 			<input type="text"  name="search" id="search" placeholder="Search by blogger & categories name">
 			<div id='submitsearch'
 			style="">
+
 			<span>Search</span>
 
+				<span>Search</span>
+
+			</div>
+
+			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> 
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav nav ml-auto">
+					<li class="nav-item"><a href="{{route('index')}}" class="nav-link"><span><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</span></a></li>
+					<li class="nav-item"><a href="{{route('video_show')}}" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Save</span></a></li>
+					{{--<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save</a>
+			              <div class="dropdown-menu" aria-labelledby="dropdown04">
+			              	<a class="dropdown-item" href="{{route('saved_post')}}"><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Post</span></a>
+			                <a class="dropdown-item" href="{{route('saved_video')}}"><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Video</span></a>
+			              </div>
+			          </li>--}}
+					<li class="nav-item dropdown">
+              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+			              <div class="dropdown-menu" aria-labelledby="dropdown04">
+			    
+			    				@if(Auth::user()->getRoleNames()[0] == "user")
+			    				<a class="dropdown-item" href="{{ route('requestblogger',Auth::user()->id) }}">
+                                    As Request Blogger									
+                                    </a>
+			    				@endif
+			              	<a class="dropdown-item" href="{{ route('blogger') }}">
+                                        {{Auth::user()->name}}
+                                    </a>
+                                  
+			               <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+			              </div>
+            		</li>
+	          
+				</ul>
+
+			</div>
 		</div>
-
-		<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="oi oi-menu"></span> 
-		</button>
-
-		<div class="collapse navbar-collapse" id="ftco-nav">
-			<ul class="navbar-nav nav ml-auto">
-				<li class="nav-item"><a href="{{route('index')}}" class="nav-link"><span><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</span></a></li>
-				<li class="nav-item"><a href="{{route('video_show')}}" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Video</span></a></li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save</a>
-					<div class="dropdown-menu" aria-labelledby="dropdown04">
-						<a class="dropdown-item" href="{{route('saved_post')}}"><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Post</span></a>
-						<a class="dropdown-item" href="{{route('saved_video')}}"><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Video</span></a>
-					</div>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
-					<div class="dropdown-menu" aria-labelledby="dropdown04">
-						<a class="dropdown-item" href="{{ route('logout') }}"
-						onclick="event.preventDefault();
-						document.getElementById('logout-form').submit();">
-						{{ __('Logout') }}
-					</a>
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-						@csrf
-					</form>
-				</div>
-			</li>
-			
-		</ul>
-
-	</div>
 </div>
 </nav>
 

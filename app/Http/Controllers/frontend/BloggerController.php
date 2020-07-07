@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
+use Auth;
 
 class BloggerController extends Controller
 {
@@ -15,7 +17,8 @@ class BloggerController extends Controller
      */
     public function index()
     {
-        return view('frontend.createpost');
+        $categories=Category::all();
+        return view('frontend.createpost',compact('categories'));
     }
 
     /**
@@ -36,7 +39,7 @@ class BloggerController extends Controller
      */
     public function store(Request $request)
     {
-
+       $id=Auth::user()->id;
        $request->validate([
             'post_content' => 'required',
             'uploadFile' => 'required',
@@ -71,8 +74,8 @@ class BloggerController extends Controller
         }
 
         $post = new Post;
-        $post->categories_id = 1;
-        $post->user_id =1;
+        $post->categories_id = $request->category_id;
+        $post->user_id =$id;
         $post->post_content  = $request->post_content;
         $post->video= $request->video;
         $post->photo = json_encode($data);
@@ -80,7 +83,7 @@ class BloggerController extends Controller
 
         $post->save();
 
-        return redirect()->route('post.index')->with('success', 'An item have been successfully added');
+        return redirect()->route('blogger')->with('success', 'An item have been successfully added');
        
     }
     /**

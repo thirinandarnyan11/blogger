@@ -38,11 +38,6 @@
                                     </span>
                                 @enderror
                             </div>
-                             <div class="form-group">
-                                <input type="radio" name="radiorole" id="agree-term" class="agree-term" value="blogger"/>Blogger
-                                <input type="radio" name="radiorole" id="agree-term" class="agree-term" value="user" />User 
-                            </div>
-
                             <div class="form-group">
                                 <label for="phone"><i class="zmdi zmdi-phone"></i></label>
                                 <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"  required autocomplete="phone" autofocus placeholder="Phone"/>
