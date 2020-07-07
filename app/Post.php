@@ -15,9 +15,4 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
 
-
-    protected $fillable=[
-    	'post_content','photo','video','categories_id','user_id'
-    ];
-
 }

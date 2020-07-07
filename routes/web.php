@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function(){
 
 Route::get('/index','frontend\FrontendController@index')->name('index');
 Route::get('/index/useraction','frontend\LiveSearchController@useraction')->name('index.useraction');
+Route::get('/index/useractionpost','frontend\LiveSearchController@useractionpost')->name('index.useractionpost');
+
 
 
 Route::resource('roles','frontend\RoleController');
@@ -38,6 +40,7 @@ Route::get('savevideo','frontend\FrontendController@saved_video')->name('saved_v
 Route::get('savepost','frontend\FrontendController@saved_post')->name('saved_post');
 /*});
 */
+});
 Route::get('backend','backend\BackendController@index')->name('backend');
 
 Route::resource('bloggerlist','backend\BloggerListController');

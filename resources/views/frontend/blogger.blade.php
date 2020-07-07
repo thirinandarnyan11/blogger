@@ -18,36 +18,7 @@
 						<h1 class="mb-4"><a href="#">Advice customer best comestics</a></h1>
 						<p class="mb-4">Change customer most beautiful person</p>
 						<a href="{{route('post.index')}}"><button type="button" class="btn btn-outline-primary btn-md">Create Your Blog</button></a>
-					<div class="modal fade" id="createblog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Edit Basic Info</h6>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<form>
-										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">Date of Birth</label>
-											<input type="Date" class="form-control" id="">
-										</div>
-										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">Address</label>
-											<textarea type="" class="form-control" id="">
-											</textarea>
-										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Change</button>
-								</div>
-							</div>
-						</div>
-					</div>
-						{{--<p><a href="{{route('post.index')}}" class="btn btn-primary p-3 px-xl-4 py-xl-3" >Create Your Blog</a></p>--}}
+				
 					</div>
 				</div>
 
@@ -81,8 +52,8 @@
 					<p>Address <span>Yangon</span></p>
 				</div>
 				<div class="col-lg-4">
-					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#basicinfo" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
-					<div class="modal fade" id="basicinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<button type="submit" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#basicinfo" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
+					<div class="modal fade" id="basicinfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -192,12 +163,12 @@
 					<img src="{{asset('frontendtemplate/bloggertemplate/images/bg_1.jpg')}}" class="coverphoto">
 				</div>
 				<div class="col-lg-4">
-					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModal1" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
-					<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#coverphoto" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
+					<div class="modal fade" id="coverphoto" tabindex="-1" role="dialog" aria-labelledby="coverphoto" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Edit Cover Photo</h6>
+									<h6 class="modal-title profic" id="coverphoto">Edit Cover Photo</h6>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>

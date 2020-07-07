@@ -36,6 +36,8 @@ class SendEmailController extends Controller
         Mail::to($email)->send(new SendMail($data));
         return back()->with('success','Accepted message arrived this blogger email');
 
+        $role=$user->getRoleNames();
+    
         return $user;
 
     }
