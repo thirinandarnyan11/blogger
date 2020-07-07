@@ -48,7 +48,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-3 ml-lg-5 mt-3">
-					<a href=""><span style="font-size: 15px;" class="icon icon-heart-o">&nbsp;Likes&nbsp;</span></a>
+					<a href="{{route('like',$row->id)}}" ><span style="font-size: 15px;" class="icon icon-heart-o" id="like">&nbsp;Likes&nbsp;</span></a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
 					<a href="{{ route('post.show', $row->id) }}"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</a>                         

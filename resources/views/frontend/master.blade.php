@@ -118,6 +118,7 @@
 
 <script src="{{asset('frontendtemplate/usertemplate/js/main.js')}}"></script>
 <script type="text/javascript" src="{{asset('frontendtemplate/usertemplate/js/custom.js')}}"></script>
+<script src="{{asset('frontendtemplate/bloggertemplate/js/like.js')}}"></script>
 
 </body>
 </html>

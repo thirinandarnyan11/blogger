@@ -114,6 +114,7 @@
 
 <script src="<?php echo e(asset('frontendtemplate/usertemplate/js/main.js')); ?>"></script>
 <script type="text/javascript" src="<?php echo e(asset('frontendtemplate/usertemplate/js/custom.js')); ?>"></script>
+<script src="<?php echo e(asset('frontendtemplate/bloggertemplate/js/like.js')); ?>"></script>
 
 </body>
 </html><?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/master.blade.php ENDPATH**/ ?>
