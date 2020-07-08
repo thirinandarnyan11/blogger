@@ -19,7 +19,9 @@ class BloggerListController extends Controller
     public function index()
     {
          
-         $users=User::doesntHave('roles')->get() ;
+         // $users=User::doesntHave('roles')->get() ;
+        $users=User::where('status',1)
+                ->get();
          return view('backend.bloggerlist',compact('users'));
             
                 

@@ -15,7 +15,7 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
 
-	 
+
 
     public function category(){
 	return $this->belongsTo('App\Category');
@@ -24,6 +24,10 @@ class Post extends Model
     public function user(){
     return $this->belongsTo('App\User');
     }
+    public function likes(){
+        return $this->belongsTo('App\like');
+    }
+
 
      public function savepost(){
     return $this->hasOne('App\SavePost');
@@ -31,4 +35,5 @@ class Post extends Model
 
 
     
+
 }

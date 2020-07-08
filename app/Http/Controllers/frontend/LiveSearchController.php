@@ -45,6 +45,7 @@ class LiveSearchController extends Controller
 					<iframe width="350" height="200" src="https://www.youtube.com/embed/Zu1dNK0imzQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					</div>
+
 					';
 				}
 			}
@@ -74,25 +75,27 @@ class LiveSearchController extends Controller
 				->where('name','like','%'.$query.'%')
 				->orderBy('id','desc')
 				->get();
+
+				
 			}
 			else
 			{
 				$data = User::role('blogger')
 				-> orderBy('id','desc')
 				->get();
+				
 			}
 			$total_row = $data->count();
 			$output="";
+
 			if($total_row >0)
 			{
 				foreach($data as $row)
 				{
 					$output .= '
-					
-					<h5 class="name mt-2 ml-3">'.$row->name.'</h5><br>
-					
+					<h2>'.$row->name.'</h2>	
 					';
-				}
+				
 			}
 			else
 			{
@@ -108,4 +111,6 @@ class LiveSearchController extends Controller
 			echo json_encode($data);
 		}
 	}
+
+	
 }

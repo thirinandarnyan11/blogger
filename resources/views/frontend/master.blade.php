@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
 	<title>Beauty Blogger for user</title>
 	<meta charset="utf-8">
@@ -8,15 +8,15 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
 
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
 
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/open-iconic-bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/animate.css')}}">
@@ -39,6 +39,9 @@
 			<input type="text"  name="search" id="search" placeholder="Search by blogger & categories name">
 			<div id='submitsearch'
 			style="">
+
+			<span>Search</span>
+
 				<span>Search</span>
 
 			</div>
@@ -50,17 +53,27 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav nav ml-auto">
 					<li class="nav-item"><a href="{{route('index')}}" class="nav-link"><span><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</span></a></li>
-					<li class="nav-item"><a href="{{route('video_show')}}" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Video</span></a></li>
-					<li class="nav-item dropdown">
+					<li class="nav-item"><a href="{{route('video_show')}}" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Save</span></a></li>
+					{{--<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save</a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
 			              	<a class="dropdown-item" href="{{route('saved_post')}}"><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Post</span></a>
 			                <a class="dropdown-item" href="{{route('saved_video')}}"><span><i class="icon icon-bookmark"></i>&nbsp;&nbsp;Video</span></a>
 			              </div>
-			          </li>
+			          </li>--}}
 					<li class="nav-item dropdown">
-              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
+              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
+			    
+			    				@if(Auth::user()->getRoleNames()[0] == "user")
+			    				<a class="dropdown-item" href="{{ route('requestblogger',Auth::user()->id) }}">
+                                    As Request Blogger									
+                                    </a>
+			    				@endif
+			              	<a class="dropdown-item" href="{{ route('blogger') }}">
+                                        {{Auth::user()->name}}
+                                    </a>
+                                  
 			               <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -77,12 +90,13 @@
 
 			</div>
 		</div>
-	</nav>
+</div>
+</nav>
 
-	<div class="container-fluid post">
-		@yield('usercontent')
+<div class="container-fluid post">
+	@yield('usercontent')
 	
-	</div>
+</div>
 
 
 <!-- loader -->
@@ -104,6 +118,7 @@
 
 <script src="{{asset('frontendtemplate/usertemplate/js/main.js')}}"></script>
 <script type="text/javascript" src="{{asset('frontendtemplate/usertemplate/js/custom.js')}}"></script>
+<script src="{{asset('frontendtemplate/bloggertemplate/js/like.js')}}"></script>
 
 </body>
 </html>

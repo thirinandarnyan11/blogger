@@ -18,36 +18,7 @@
 						<h1 class="mb-4"><a href="#">Advice customer best comestics</a></h1>
 						<p class="mb-4">Change customer most beautiful person</p>
 						<a href="{{route('post.index')}}"><button type="button" class="btn btn-outline-primary btn-md">Create Your Blog</button></a>
-					<div class="modal fade" id="createblog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Edit Basic Info</h6>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<form>
-										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">Date of Birth</label>
-											<input type="Date" class="form-control" id="">
-										</div>
-										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">Address</label>
-											<textarea type="" class="form-control" id="">
-											</textarea>
-										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Change</button>
-								</div>
-							</div>
-						</div>
-					</div>
-						{{--<p><a href="{{route('post.index')}}" class="btn btn-primary p-3 px-xl-4 py-xl-3" >Create Your Blog</a></p>--}}
+				
 					</div>
 				</div>
 
@@ -75,14 +46,14 @@
 	<div class="row">
 		<div class="col-lg-4 d-lg-block d-md-none d-sm-none">
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-9">
 					<h6 class="profic">Basic Info</h6><hr class="hor">
 					<p>Date of Birth <span>{{$user->user_details->dob}}</span></p>
 					<p>Address <span>{{$user->user_details->address}}</span></p>
 				</div>
-				<div class="col-lg-4">
-					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#basicinfo" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
-					<div class="modal fade" id="basicinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="col-lg-3">
+					<button type="submit" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#basicinfo" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
+					<div class="modal fade" id="basicinfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -114,12 +85,12 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-9">
 					<h6 class="profic">Contact Info</h6><hr class="hor">
 					<p>Phone <span>{{$user->user_details->phone}}</span></p>
-					<p>Email <span>{{$user->user_details->email}}</span></p>
+					<p>Email <span>{{$user->email}}</span></p>
 				</div>
-				<div class="col-lg-4">
+				<div class="col-lg-3">
 					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#contactinfo" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
 					<div class="modal fade" id="contactinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
@@ -153,11 +124,11 @@
 			</div>
 
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-9">
 					<h6 class="profic">Edit Profile</h6><hr class="hor">
 					<img src="{{$user->user_details->profile}}" class="coverphoto">
 				</div>
-				<div class="col-lg-4">
+				<div class="col-lg-3">
 					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
 					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
@@ -187,17 +158,17 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-lg-8">
+				<div class="col-lg-9">
 					<h6 class="profic">Edit Cover Photo</h6><hr class="hor">
 					<img src="{{$user->user_details->cover_photo}}" class="coverphoto">
 				</div>
-				<div class="col-lg-4">
-					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModal1" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
-					<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="col-lg-3">
+					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#coverphoto" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
+					<div class="modal fade" id="coverphoto" tabindex="-1" role="dialog" aria-labelledby="coverphoto" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Edit Cover Photo</h6>
+									<h6 class="modal-title profic" id="coverphoto">Edit Cover Photo</h6>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>

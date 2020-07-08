@@ -73,8 +73,8 @@ class RegisterController extends Controller
         $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'status' => 1,
             'password' => Hash::make($data['password']),
-            'radiorole' => $data['radiorole'],
         ]);
 
         $userdetail=new User_detail;
@@ -83,8 +83,13 @@ class RegisterController extends Controller
         $userdetail->address=$data['address'];
         $userdetail->dob=$data['dob'];
         $userdetail->save();
+
        
         $user->assignRole('user');  
+      
+        $user->assignRole('user');  
+       
+
         return $user;
 
     }
