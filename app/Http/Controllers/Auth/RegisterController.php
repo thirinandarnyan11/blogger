@@ -83,12 +83,8 @@ class RegisterController extends Controller
         $userdetail->address=$data['address'];
         $userdetail->dob=$data['dob'];
         $userdetail->save();
-       if($data['radiorole'] == 'user'){
-            $user->assignRole('user');  
-       }
-       else{
-        return $user;
-       }
+       
+        $user->assignRole('user');  
         return $user;
 
     }

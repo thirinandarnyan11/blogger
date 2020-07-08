@@ -1,5 +1,3 @@
-
-
 @extends('frontend.masterblog')
 @section('style')
   <style type="text/css">
@@ -21,7 +19,6 @@
           <div class="card-body">
           <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
             @csrf
-
               <div class="form-group row">
                 <label for="categoryName" class="col-sm-2 col-form-label">Category</label>
                   <div class="col-sm-10">
@@ -30,17 +27,11 @@
                         @foreach($categories as $row)
                           <option value="{{$row->id}}"
                               >{{$row->name}}
-                    
-                                    
                           </option>
                         @endforeach
-                            
                         </select>
-                        
-                            
                         </div>
                     </div>
-                   
               <div class="form-group row">
                 <label for="categoryName" class="col-sm-2 col-form-label">Post Content</label>
                 <div class="col-sm-10">
@@ -60,7 +51,6 @@
                   <input type="file" id="uploadVideo" name="uploadVideo" multiple/>
                 </div>
               </div>
-           
               <div class="form-group row mt-5">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-8">

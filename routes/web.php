@@ -20,11 +20,18 @@ use Illuminate\Support\Facades\Route;
 // 	return view('frontend.user');
 // });
 
-//Route::middleware('auth')->group(function(){
+Route::middleware('role:admin')->group(function(){
 
+	Route::get('backend','backend\BackendController@index')->name('backend');
+	Route::resource('bloggerlist','backend\BloggerListController');
+	Route::post('/sendemail/send/{id}','backend\SendEmailController@send');
+	Route::resource('userlist','backend\UserListController');
+	Route::resource('categories','backend\CategoryController');
+
+});
 Route::get('/index','frontend\FrontendController@index')->name('index');
 	
-Route::middleware('role:user')->group(function(){
+Route::middleware('auth')->group(function(){
 
 	Route::get('/index/useraction','frontend\LiveSearchController@useraction')->name('index.useraction');
 	Route::resource('roles','frontend\RoleController');
@@ -35,15 +42,6 @@ Route::middleware('role:user')->group(function(){
 });
 
 
-Route::middleware('role:admin')->group(function(){
-
-	Route::get('backend','backend\BackendController@index')->name('backend');
-	Route::resource('bloggerlist','backend\BloggerListController');
-	Route::post('/sendemail/send/{id}','backend\SendEmailController@send');
-	Route::resource('userlist','backend\UserListController');
-	Route::resource('categories','backend\CategoryController');
-
-});
 
 Route::middleware('role:blogger')->group(function(){
 
@@ -53,8 +51,10 @@ Route::middleware('role:blogger')->group(function(){
 });
 	Route::resource('userpost','frontend\PostController');
 Route::get('/post/show/{id}', 'frontend\PostController@show')->name('post.show');
+Route::get('/post/store/{id}', 'frontend\PostController@store')->name('userpost.store');
+
 	Route::post('/comment/store', 'frontend\CommentController@store')->name('comment.add');
-	Route::post('/reply/store', 'frontend\CommentController@replyStore')->name('reply.add');
+	Route::post('/reply/store', 'frontend\CommentController@replyStore')->name('comment.reply');
 
 Auth::routes();
 

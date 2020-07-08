@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use Auth;
+use App\SavePost;
 class PostController extends Controller
 {
     /**
@@ -34,9 +36,20 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+       $userid=Auth::user()->id;
+        $savepost = new SavePost;
+        $savepost->user_id = $userid;
+        $savepost->post_id =$id;
+       
+        $savepost->save();
+        $id=Auth::user()->id;
+        $posts=SavePost::where('user_id',$id)->orderBy('id','desc')->get();
+        
+        return view('frontend.savedpost',compact('posts'));
+
+
     }
 
     /**

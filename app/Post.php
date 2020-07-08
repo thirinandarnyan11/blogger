@@ -25,6 +25,10 @@ class Post extends Model
     return $this->belongsTo('App\User');
     }
 
+     public function savepost(){
+    return $this->hasOne('App\SavePost');
+    }
+
 
     
 }

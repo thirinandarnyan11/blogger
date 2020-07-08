@@ -7,7 +7,7 @@
 
 				<div class="col-md-6 text ftco-animate">
 					<div class="author mb-4 d-flex align-items-center">
-						<a href="#" class="img" style="background-image: url({{asset('frontendtemplate/bloggertemplate/images/naychi.jpg);')}})"></a>
+						<a href="#" class="img" style="background-image: url({{$user->user_details->profile}})"></a>
 						<div class="ml-3 info">
 							<span>Blogger</span>
 							<h3><a href="#">{{Auth::user()->name}}</a>, <span>{{$user->user_details->dob}}</span></h3>

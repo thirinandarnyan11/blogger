@@ -51,15 +51,17 @@
                 @endforeach
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 ml-lg-5 mt-3">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ml-lg-5 mt-3">
                     <span style="font-size: 15px;" class="icon icon-heart-o">&nbsp;15&nbsp;Likes</span>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
-                    <a href="{{ route('post.show', $row->id) }}"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;15&nbsp;</a>                         
-                    </span>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mt-2 mt-3">
+                    <a href="{{ route('post.show', $row->id) }}"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;15&nbsp;</span></a>                         
+                    
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 mt-2 mt-3">
-                    <span style="font-size: 15px;" class="icon icon-bookmark-o">&nbsp;15&nbsp;Saves</span>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 mt-2 mt-3">
+                	<a href="{{ route('userpost.store', $row->id) }}">
+                    	<span style="font-size: 15px;" class="icon icon-bookmark-o">&nbsp;15&nbsp;Saves</span>
+                    </a>
                 </div>
 
             </div>

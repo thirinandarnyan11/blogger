@@ -7,9 +7,10 @@
             <div class="card">
                 <div class="card-header">Create Post</div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('post.store') }}">
-                        <div class="form-group">
+                    <form method="post" action="{{ route('post.store') }}" enctype="multipart/form-data">
                             @csrf
+                        
+                        <div class="form-group">
                             <label class="label">Post Title: </label>
                             <input type="text" name="title" class="form-control" required/>
                         </div>
