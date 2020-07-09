@@ -36,11 +36,14 @@
 
 			<td><a href="{{route('bloggerlist.show',$row->id)}}" class="btn btn-primary" style="display: inline;"><i class="fas fa-user-check"></i> </a>
 
-			<form method="POST" action="{{route('bloggerlist.destroy',$row->id)}}" onsubmit="return confirm('Are you sure denied this blogger?')">
+			{{--<form method="POST" action="{{route('denied',$row->id)}}" onsubmit="return confirm('Are you sure denied this blogger?')">
 				@csrf
-				@method('DELETE')
+				@method('POST')
 				<button type="submit" class="btn btn-danger"><i class="fas fa-user-times"></i></button>
-			</form>
+			</form>--}}
+
+	<a href="{{route('denied',$row->id)}}" class="btn btn-danger" style="display: inline;"><i class="fas fa-user-check"></i> </a>
+
 
 		</tr>
 		@endforeach

@@ -10,8 +10,6 @@
 
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
 
 
@@ -29,6 +27,8 @@
 
 	<link rel="stylesheet" href="<?php echo e(asset('frontendtemplate/usertemplate/css/icomoon.css')); ?>">
 	<link rel="stylesheet" href="<?php echo e(asset('frontendtemplate/usertemplate/css/style.css')); ?>">
+
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontendtemplate/bloggertemplate/js/css/like.css')); ?>">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
 
@@ -36,15 +36,7 @@
 	<nav class="navbar navbar-expand-lg  ftco_navbar bg-light ftco-navbar-light site-navbar-target" id="ftco-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="index.html">BB</a>
-			<input type="text"  name="search" id="search" placeholder="Search by blogger & categories name">
-			<div id='submitsearch'
-			style="">
-
-			<span>Search</span>
-
-				<span>Search</span>
-
-			</div>
+			
 
 			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> 
@@ -63,18 +55,23 @@
 			    				<a class="dropdown-item" href="<?php echo e(route('requestblogger',Auth::user()->id)); ?>">
                                     As Request Blogger									
                                     </a>
-			    				<?php endif; ?>
-			              	<a class="dropdown-item" href="<?php echo e(route('blogger')); ?>">
+									<a class="dropdown-item" href="<?php echo e(route('userprofile')); ?>">
                                         <?php echo e(Auth::user()->name); ?>
 
-                                    </a>
-                                  
-			               <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <?php echo e(__('Logout')); ?>
+                           			</a>
+                               <?php endif; ?> 
+                               <?php if(Auth::user()->getRoleNames()[0] == "blogger"): ?>  
+                                <a class="dropdown-item" href="<?php echo e(route('blogger')); ?>">
+                                        <?php echo e(Auth::user()->name); ?>
 
-                                    </a>
+                           		</a>
+                           		<?php endif; ?>
+				                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
+	                                       onclick="event.preventDefault();
+	                                                     document.getElementById('logout-form').submit();">
+	                                        <?php echo e(__('Logout')); ?>
+
+	                            </a>
 
                                     <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
                                         <?php echo csrf_field(); ?>
@@ -117,5 +114,10 @@
 <script src="<?php echo e(asset('frontendtemplate/usertemplate/js/main.js')); ?>"></script>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var token = "<?php echo e(Session::token()); ?>";
+</script>
 </body>
 </html><?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/master.blade.php ENDPATH**/ ?>

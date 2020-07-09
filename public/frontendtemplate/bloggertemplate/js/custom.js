@@ -8,10 +8,10 @@
 /**
  * Add event listener to the "Sign Up" button
  */
-signupButton.addEventListener('click', () => {
-  userForms.classList.remove('bounceRight')
-  userForms.classList.add('bounceLeft')
-}, false)
+// signupButton.addEventListener('click', () => {
+//   userForms.classList.remove('bounceRight')
+//   userForms.classList.add('bounceLeft')
+// }, false)
 
 /**
  * Add event listener to the "Login" button
@@ -22,6 +22,6 @@ loginButton.addEventListener('click', () => {
 }, false)
 
 //like
-$('.like-button').on('click', function() {
-  $(this).toggleClass('liked')
-})
+// $('.like-button').on('click', function() {
+//   $(this).toggleClass('liked')
+// })

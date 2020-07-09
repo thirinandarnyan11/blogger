@@ -4,10 +4,16 @@
 <div class="container">
 
     <div class="row justify-content-center">
+
+        <div class="col-md-8">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+
         <div class="col-lg-8 col-md-12 col-sm-12 d-block" style="margin-top:40px;">
 
             <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="row">
+
                     <div class="col-lg-3 col-md-3 col-sm-3">
                         <img src="{{asset($post->user->user_details->profile)}}" class="img-fluid blogger_img">
                     </div>
@@ -94,7 +100,7 @@
                             <input type="hidden" name="post_id" value="{{ $post->id }}" />
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-warning" value="Add Comment" />
+                            <input type="submit" class="btn btn-primary" value="Add Comment" />
                         </div>
                     </form>
                 </div>

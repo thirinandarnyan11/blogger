@@ -13,9 +13,13 @@
 							<div class="comment_card" data-depth="0">
 								<figure class="figure">
 									<figcaption class="fig_caption" id="showdata">
+
+										
+
 										@foreach($users as $user)
 										<h1>{{$user->name}}</h1>
 										@endforeach
+
 									</figcaption>
 								</figure>
 							</div>
@@ -47,12 +51,24 @@
 				@endforeach
 			</div>
 			<div class="row">
+
+				<div class="col-lg-3 col-md-3 col-sm-3 ml-lg-5 mt-3">
+				<button class="likebtn" id="like"><a href="{{route('like',$row->id)}}" ><span style="font-size: 15px;" class="icon icon-heart-o">&nbsp;<span id="text">Likes</span>&nbsp;</a></button>
+					{{--<button class="like" data-postid="{{$row->id}}" ><span style="font-size: 15px;" class="icon icon-heart-o">&nbsp;<span id="text">Likes <b></b></span>&nbsp;</button>--}}
+
+                   
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
+					<a href="{{ route('post.show', $row->id) }}"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</a>                       
+					</span>
+
 				<div class="col-lg-4 col-md-3 col-sm-3 ml-lg-5 mt-3">
 					<a href="{{route('like',$row->id)}}" ><span style="font-size: 15px;" class="icon icon-heart-o" id="like">&nbsp;Likes&nbsp;</span></a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
 					<a href="{{ route('post.show', $row->id) }}"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</span></a>                         
 					
+
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 mt-2 mt-3">
 					<a href="{{ route('userpost.store', $row->id) }}">
@@ -65,32 +81,23 @@
 	</div>
 	<div class="col-lg-4 d-lg-block d-md-none d-sm-none">
 		<div class="popular">
-			<h3>Popular Blogger's Video</h3>
+			<h3>Advertising Video</h3>
 			<section class="comments_section mt-4">
 				<ul class="comment_list">
 					<li>
 						<div class="comment_card" data-depth="0">
 							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<h5 class="video_name mt-5 ml-2">Naveen Pantra</h5>
-								</figcaption>
+								<iframe width="300" height="180" src="https://www.youtube.com/embed/huuZDJ1zA18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</figure>
 						</div>
 						<div class="comment_card" data-depth="0">
 							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<h5 class="video_name mt-5 ml-2">Naveen Pantra</h5>
-								</figcaption>
+								<iframe width="300" height="200" src="https://www.youtube.com/embed/IBs9TE_zzX8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</figure>
 						</div>
 						<div class="comment_card" data-depth="0">
 							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<h5 class="video_name mt-5 ml-2">Naveen Pantra</h5>
-								</figcaption>
+								<iframe width="300" height="200" src="https://www.youtube.com/embed/tHKpL2aF4PE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</figure>
 						</div>
 					</li>
@@ -100,6 +107,9 @@
 
 		</div>
 	</div>
+
+
+	
    <script type="text/javascript">
 		$(document).ready(function(){
 			fetch_customer_data();
@@ -121,6 +131,24 @@
 				var query = $(this).val();
 				fetch_customer_data(query);
 			});
+
+			
+			// $('.likebtn').on('click',function(event){
+
+			// 	var id= this.id;
+			// 	$.ajax({
+			// 		url:'/like/{id}',
+			// 		method:'GET',
+			// 		data:{id:id},
+			// 		success:function(data)
+			// 		{
+			// 			console.log("Hello");
+			// 		}
+			// 	})
+			// })
+
 		});
+	
 	</script>
+
 	@endsection

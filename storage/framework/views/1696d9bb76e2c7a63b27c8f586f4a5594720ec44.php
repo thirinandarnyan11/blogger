@@ -35,11 +35,10 @@
 
 			<td><a href="<?php echo e(route('bloggerlist.show',$row->id)); ?>" class="btn btn-primary" style="display: inline;"><i class="fas fa-user-check"></i> </a>
 
-			<form method="POST" action="<?php echo e(route('bloggerlist.destroy',$row->id)); ?>" onsubmit="return confirm('Are you sure denied this blogger?')">
-				<?php echo csrf_field(); ?>
-				<?php echo method_field('DELETE'); ?>
-				<button type="submit" class="btn btn-danger"><i class="fas fa-user-times"></i></button>
-			</form>
+			
+
+	<a href="<?php echo e(route('denied',$row->id)); ?>" class="btn btn-danger" style="display: inline;"><i class="fas fa-user-check"></i> </a>
+
 
 		</tr>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

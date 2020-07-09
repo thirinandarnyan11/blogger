@@ -10,9 +10,11 @@
 							<div class="comment_card" data-depth="0">
 								<figure class="figure">
 									<figcaption class="fig_caption" id="showdata">
+
 										<?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 										<h1><?php echo e($user->name); ?></h1>
 										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
 									</figcaption>
 								</figure>
 							</div>
@@ -44,12 +46,25 @@
 				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			</div>
 			<div class="row">
+<<<<<<< HEAD
 				<div class="col-lg-4 col-md-3 col-sm-3 ml-lg-5 mt-3">
 					<a href="<?php echo e(route('like',$row->id)); ?>" ><span style="font-size: 15px;" class="icon icon-heart-o" id="like">&nbsp;Likes&nbsp;</span></a>
+=======
+				<div class="col-lg-3 col-md-3 col-sm-3 ml-lg-5 mt-3">
+				<button class="likebtn" id="like"><a href="<?php echo e(route('like',$row->id)); ?>" ><span style="font-size: 15px;" class="icon icon-heart-o">&nbsp;<span id="text">Likes</span>&nbsp;</a></button>
+					
+
+                   
+>>>>>>> bba15898e79b3f75f8b3877924d582ea83aff7d4
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
+<<<<<<< HEAD
+					<a href="<?php echo e(route('post.show', $row->id)); ?>"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</a>                       
+					</span>
+=======
 					<a href="<?php echo e(route('post.show', $row->id)); ?>"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</span></a>                         
 					
+>>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 mt-2 mt-3">
 					<a href="<?php echo e(route('userpost.store', $row->id)); ?>">
@@ -62,32 +77,23 @@
 	</div>
 	<div class="col-lg-4 d-lg-block d-md-none d-sm-none">
 		<div class="popular">
-			<h3>Popular Blogger's Video</h3>
+			<h3>Advertising Video</h3>
 			<section class="comments_section mt-4">
 				<ul class="comment_list">
 					<li>
 						<div class="comment_card" data-depth="0">
 							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<h5 class="video_name mt-5 ml-2">Naveen Pantra</h5>
-								</figcaption>
+								<iframe width="300" height="180" src="https://www.youtube.com/embed/huuZDJ1zA18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</figure>
 						</div>
 						<div class="comment_card" data-depth="0">
 							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<h5 class="video_name mt-5 ml-2">Naveen Pantra</h5>
-								</figcaption>
+								<iframe width="300" height="200" src="https://www.youtube.com/embed/IBs9TE_zzX8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</figure>
 						</div>
 						<div class="comment_card" data-depth="0">
 							<figure class="figure">
-								<iframe width="200" height="100" src="https://www.youtube.com/embed/W2kBoqObKh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="mt-4"></iframe>
-								<figcaption class="fig_caption">
-									<h5 class="video_name mt-5 ml-2">Naveen Pantra</h5>
-								</figcaption>
+								<iframe width="300" height="200" src="https://www.youtube.com/embed/tHKpL2aF4PE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							</figure>
 						</div>
 					</li>
@@ -97,7 +103,12 @@
 
 		</div>
 	</div>
+<<<<<<< HEAD
+
+	<script type="text/javascript">
+=======
    <script type="text/javascript">
+>>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
 		$(document).ready(function(){
 			fetch_customer_data();
 			function fetch_customer_data(query = '')
@@ -118,7 +129,25 @@
 				var query = $(this).val();
 				fetch_customer_data(query);
 			});
+
+			
+			// $('.likebtn').on('click',function(event){
+
+			// 	var id= this.id;
+			// 	$.ajax({
+			// 		url:'/like/{id}',
+			// 		method:'GET',
+			// 		data:{id:id},
+			// 		success:function(data)
+			// 		{
+			// 			console.log("Hello");
+			// 		}
+			// 	})
+			// })
+
 		});
+	
 	</script>
+
 	<?php $__env->stopSection(); ?>
 <?php echo $__env->make('frontend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/user.blade.php ENDPATH**/ ?>

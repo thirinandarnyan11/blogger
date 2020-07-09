@@ -1,0 +1,9 @@
+button {
+  border:none;
+  /*background-color:#0084ff;*/
+  border-radius:3px;
+  color:#08086f;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+}
