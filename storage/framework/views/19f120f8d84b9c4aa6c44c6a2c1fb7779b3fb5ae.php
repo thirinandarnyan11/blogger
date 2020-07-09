@@ -44,7 +44,7 @@
 				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			</div>
 			<div class="row">
-				<div class="col-lg-3 col-md-3 col-sm-3 ml-lg-5 mt-3">
+				<div class="col-lg-4 col-md-3 col-sm-3 ml-lg-5 mt-3">
 					<a href="<?php echo e(route('like',$row->id)); ?>" ><span style="font-size: 15px;" class="icon icon-heart-o" id="like">&nbsp;Likes&nbsp;</span></a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 mt-2 mt-3">
 					<a href="<?php echo e(route('userpost.store', $row->id)); ?>">
-                    	<span style="font-size: 15px;" class="icon icon-bookmark-o">&nbsp;15&nbsp;Saves</span>
+                    	<span style="font-size: 15px;" class="icon icon-bookmark-o">&nbsp;Saves&nbsp;</span>
                     </a>
 				</div>
 			</div>
