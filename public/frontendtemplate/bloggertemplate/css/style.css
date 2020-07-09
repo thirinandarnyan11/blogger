@@ -7300,12 +7300,12 @@ h1, h2, h3, h4, h5,
   color: #ff895d !important; }
 
 .ftco-navbar-light {
-  background: transparent !important;
+  background: #08086f !important;
   position: absolute;
-  top: 20px;
   left: 0;
   right: 0;
-  z-index: 3; }
+  z-index: 3;
+  height: 80px; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
       background: #000000 !important;
@@ -9340,8 +9340,8 @@ input::placeholder {
   margin-left: 0px;
 }
 .coverphoto{
-  width: 50%;
-  height: 150px;
+  width: 40%;
+  height: 100px;
 }
 .profic{
   color: black;

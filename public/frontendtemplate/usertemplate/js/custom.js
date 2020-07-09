@@ -8,18 +8,18 @@ var  loginButton = document.getElementById('login-button');
 /**
  * Add event listener to the "Sign Up" button
  */
-signupButton.addEventListener('click', () => {
-  userForms.classList.remove('bounceRight')
-  userForms.classList.add('bounceLeft')
-}, false)
+// signupButton.addEventListener('click', () => {
+//   userForms.classList.remove('bounceRight')
+//   userForms.classList.add('bounceLeft')
+// }, false)
 
 /**
  * Add event listener to the "Login" button
  */
-loginButton.addEventListener('click', () => {
-  userForms.classList.remove('bounceLeft')
-  userForms.classList.add('bounceRight')
-}, false)
+// loginButton.addEventListener('click', () => {
+//   userForms.classList.remove('bounceLeft')
+//   userForms.classList.add('bounceRight')
+// }, false)
 
 //like
 $('.like-button').on('click', function() {

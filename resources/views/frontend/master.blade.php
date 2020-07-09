@@ -10,8 +10,6 @@
 
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
 
 
@@ -29,6 +27,8 @@
 
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/icomoon.css')}}">
 	<link rel="stylesheet" href="{{asset('frontendtemplate/usertemplate/css/style.css')}}">
+
+	<link rel="stylesheet" type="text/css" href="{{asset('frontendtemplate/bloggertemplate/js/css/like.css')}}">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
 
@@ -36,7 +36,7 @@
 	<nav class="navbar navbar-expand-lg  ftco_navbar bg-light ftco-navbar-light site-navbar-target" id="ftco-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="index.html">BB</a>
-			<input type="text"  name="search" id="search" placeholder="Search by blogger & categories name">
+			{{--<input type="text"  name="search" id="search" placeholder="Search by blogger & categories name">
 			<div id='submitsearch'
 			style="">
 
@@ -44,7 +44,7 @@
 
 				<span>Search</span>
 
-			</div>
+			</div>--}}
 
 			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> 
@@ -69,16 +69,20 @@
 			    				<a class="dropdown-item" href="{{ route('requestblogger',Auth::user()->id) }}">
                                     As Request Blogger									
                                     </a>
-			    				@endif
-			              	<a class="dropdown-item" href="{{ route('blogger') }}">
+									<a class="dropdown-item" href="{{route('userprofile')}}">
                                         {{Auth::user()->name}}
-                                    </a>
-                                  
-			               <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                           			</a>
+                               @endif 
+                               @if(Auth::user()->getRoleNames()[0] == "blogger")  
+                                <a class="dropdown-item" href="{{ route('blogger') }}">
+                                        {{Auth::user()->name}}
+                           		</a>
+                           		@endif
+				                <a class="dropdown-item" href="{{ route('logout') }}"
+	                                       onclick="event.preventDefault();
+	                                                     document.getElementById('logout-form').submit();">
+	                                        {{ __('Logout') }}
+	                            </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -120,5 +124,10 @@
 <script type="text/javascript" src="{{asset('frontendtemplate/usertemplate/js/custom.js')}}"></script>
 <script src="{{asset('frontendtemplate/bloggertemplate/js/like.js')}}"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var token = "{{Session::token()}}";
+</script>
 </body>
 </html>

@@ -21,18 +21,17 @@
   <?php echo $__env->yieldContent('style'); ?>
 </head>
 <body>
- <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+ <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
    <div class="container">
-     <a class="navbar-brand navbar-brand-black" href="index.html">BB</a>
+     <a class="navbar-brand navbar-brand-black" href="index.html" style="color: white">BB</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
        <span class="oi oi-menu"></span> 
      </button>
      <div class="collapse navbar-collapse" id="ftco-nav">
-       <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="<?php echo e(route('blogger')); ?>" class="nav-link">Home</a></li>
-         
+       <ul class="navbar-nav" style="float: right;">
+         <li class="nav-item"><a href="<?php echo e(route('index')); ?>" class="nav-link" style="color: white;font-size: 15px;"><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</a></li>
          <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(Auth::user()->name); ?></a>
+           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;font-size: 15px;"><?php echo e(Auth::user()->name); ?></a>
            <div class="dropdown-menu" aria-labelledby="dropdown04">
             <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
@@ -97,8 +96,8 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet"> 
   <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css">
-  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.
-  4/jquery.js"></script>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
   

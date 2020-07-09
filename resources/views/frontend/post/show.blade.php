@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
                 <div class="card-body">
                     <div class="col-lg-3 col-md-3 col-sm-3">
                         <img src="{{$post->user->user_details->profile}}" class="img-fluid blogger_img">
@@ -38,7 +38,7 @@
                             <input type="hidden" name="post_id" value="{{ $post->id }}" />
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-warning" value="Add Comment" />
+                            <input type="submit" class="btn btn-primary" value="Add Comment" />
                         </div>
                     </form>
                 </div>

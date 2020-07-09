@@ -17,9 +17,7 @@ class FrontendController extends Controller
     }
 
     function index()
-
-    {  
-        
+    {         
         $posts=Post::orderBy('id','desc')->get();
     	return view('frontend.user',compact('posts'));
     }
@@ -39,7 +37,14 @@ class FrontendController extends Controller
         return view('frontend.blogger',compact('post','user'));
     }
 
-      public function requestblogger($id){
+    function userprofile(){
+        $id=Auth::user()->id;
+        $user=User::find($id);
+        $post=Post::where('user_id',$id)->orderBy('id','desc')->get();
+        return view('frontend.userprofile',compact('post','user'));
+    }
+
+    public function requestblogger($id){
         $user=User::find($id);
         $user->status=1;
         $user->save();

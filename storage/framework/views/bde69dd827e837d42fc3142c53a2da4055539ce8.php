@@ -1,5 +1,5 @@
 <?php $__env->startSection('bloggercontent'); ?>
-<section class="home-slider js-fullheight owl-carousel">
+<section class="home-slider js-fullheight owl-carousel" style="margin-top: -20px;">
 	<div class="slider-item js-fullheight">
 		<div class="container-fluid">
 			<div class="row js-fullheight slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -46,7 +46,7 @@
 		<div class="col-lg-4 d-lg-block d-md-none d-sm-none">
 			<div class="row">
 				<div class="col-lg-9">
-					<h6 class="profic">Basic Info</h6><hr class="hor">
+					<h4 class="profic">Basic Info</h4><hr class="hor">
 					<p>Date of Birth <span><?php echo e($user->user_details->dob); ?></span></p>
 					<p>Address <span><?php echo e($user->user_details->address); ?></span></p>
 				</div>
@@ -56,7 +56,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Edit Basic Info</h6>
+									<h4 class="modal-title profic" id="exampleModalLabel">Edit Basic Info</h4>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
@@ -65,11 +65,12 @@
 									<form>
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Date of Birth</label>
-											<input type="Date" class="form-control" id="">
+											<input type="Date" class="form-control" id="" value="<?php echo e($user->user_details->dob); ?>">
 										</div>
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Address</label>
-											<textarea type="" class="form-control" id="">
+											<textarea type="" class="form-control text-left"><?php echo e($user->user_details->address); ?>
+
 											</textarea>
 										</div>
 									</form>
@@ -95,7 +96,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Edit Contact Info</h6>
+									<h4 class="modal-title profic" id="exampleModalLabel">Edit Contact Info</h4>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
@@ -104,11 +105,11 @@
 									<form>
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Phone</label>
-											<input type="text" class="form-control" id="">
+											<input type="text" class="form-control" id="" value="<?php echo e($user->user_details->phone); ?>">
 										</div>
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Email</label>
-											<input type="email" class="form-control" id="">
+											<input type="email" class="form-control" id="" value="<?php echo e($user->email); ?>">
 										</div>
 									</form>
 								</div>
@@ -143,7 +144,7 @@
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Cover Photo</label>
 											<input type="file" class="form-control" id="">
-											<img src="<?php echo e(asset('frontendtemplate/bloggertemplate/images/bg_1.jpg')); ?>" class="coverphoto mt-2">
+											<img src="<?php echo e($user->user_details->profile); ?>" class="coverphoto mt-2">
 										</div>
 									</form>
 								</div>
