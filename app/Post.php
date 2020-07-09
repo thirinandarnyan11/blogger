@@ -28,4 +28,12 @@ class Post extends Model
         return $this->belongsTo('App\like');
     }
 
+
+     public function savepost(){
+    return $this->hasOne('App\SavePost');
+    }
+
+
+    
+
 }

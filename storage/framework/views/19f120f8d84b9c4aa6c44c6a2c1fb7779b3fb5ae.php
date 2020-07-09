@@ -1,5 +1,5 @@
 <?php $__env->startSection('usercontent'); ?>
-<div class="col-lg-3 d-lg-block d-md-none d-sm-none">
+	<div class="col-lg-3 d-lg-block d-md-none d-sm-none">
 	<!-- <div class="row" id="showdata"> -->
 		<div class="col-lg-4 d-lg-block d-md-none d-sm-none">
 			<div class="popular">
@@ -10,7 +10,13 @@
 							<div class="comment_card" data-depth="0">
 								<figure class="figure">
 									<figcaption class="fig_caption" id="showdata">
+<<<<<<< HEAD
 										
+=======
+										<?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+										<h1><?php echo e($user->name); ?></h1>
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+>>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
 									</figcaption>
 								</figure>
 							</div>
@@ -36,9 +42,9 @@
 				$photo=json_decode($row->photo);
 				?>
 				<?php $__currentLoopData = $photo; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $photos): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-				<div class="col-md-6 col-lg-6 col-sm-6 mt-5 s">
-					<img src="<?php echo e(asset($photos)); ?>" class="img-fluid post-img">
-				</div>
+					<div class="col-md-6 col-lg-6 col-sm-6 mt-5 s">
+						<img src="<?php echo e(asset($photos)); ?>" class="img-fluid post-img">
+					</div>
 				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			</div>
 			<div class="row">
@@ -49,11 +55,18 @@
                    
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
+<<<<<<< HEAD
 					<a href="<?php echo e(route('post.show', $row->id)); ?>"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</a>                       
 					</span>
+=======
+					<a href="<?php echo e(route('post.show', $row->id)); ?>"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</span></a>                         
+					
+>>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 mt-2 mt-3">
-					<span style="font-size: 15px;" class="icon icon-bookmark-o">&nbsp;15&nbsp;Saves</span>
+					<a href="<?php echo e(route('userpost.store', $row->id)); ?>">
+                    	<span style="font-size: 15px;" class="icon icon-bookmark-o">&nbsp;15&nbsp;Saves</span>
+                    </a>
 				</div>
 			</div>
 		</div>
@@ -81,12 +94,18 @@
 							</figure>
 						</div>
 					</li>
+
 				</ul> 
 			</section>
+
 		</div>
 	</div>
+<<<<<<< HEAD
 
 	<script type="text/javascript">
+=======
+   <script type="text/javascript">
+>>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
 		$(document).ready(function(){
 			fetch_customer_data();
 			function fetch_customer_data(query = '')

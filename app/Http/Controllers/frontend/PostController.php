@@ -6,8 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
+<<<<<<< HEAD
 use App\Like;
 use DB;
+=======
+use Auth;
+use App\SavePost;
+use App\Like;
+
+>>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
 class PostController extends Controller
 {
     /**
@@ -94,9 +101,27 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+       $userid=Auth::user()->id;
+       $posts= SavePost::where(['user_id' => $userid, 'post_id' => $id])
+                    ->orderBy('id','desc')
+                    ->first();
+        
+           if(!$posts){
+
+        $savepost = new SavePost;
+        $savepost->user_id = $userid;
+        $savepost->post_id =$id;
+        
+        $savepost->save();
+    }
+        /*$id=Auth::user()->id;
+        $posts=SavePost::where('user_id',$id)->orderBy('id','desc')->get();
+        */
+        return view('frontend.savedpost',compact('posts'));
+
+
     }
 
     /**

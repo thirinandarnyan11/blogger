@@ -53,7 +53,7 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav nav ml-auto">
 					<li class="nav-item"><a href="{{route('index')}}" class="nav-link"><span><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</span></a></li>
-					<li class="nav-item"><a href="{{route('video_show')}}" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Save</span></a></li>
+					<li class="nav-item"><a href="{{route('saved_post')}}" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Save</span></a></li>
 					{{--<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Save</a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -120,9 +120,10 @@
 <script src="{{asset('frontendtemplate/usertemplate/js/jquery.animateNumber.min.js')}}"></script>
 <script src="{{asset('frontendtemplate/usertemplate/js/scrollax.min.js')}}"></script>
 
-<script src="{{asset('frontendtemplate/usertemplate/js/main.js')}}"></script>
 <script type="text/javascript" src="{{asset('frontendtemplate/usertemplate/js/custom.js')}}"></script>
 <script src="{{asset('frontendtemplate/bloggertemplate/js/like.js')}}"></script>
+<script src="{{asset('frontendtemplate/usertemplate/js/main.js')}}"></script>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

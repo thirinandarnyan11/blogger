@@ -83,9 +83,13 @@ class RegisterController extends Controller
         $userdetail->address=$data['address'];
         $userdetail->dob=$data['dob'];
         $userdetail->save();
+
+       
+        $user->assignRole('user');  
       
         $user->assignRole('user');  
        
+
         return $user;
 
     }

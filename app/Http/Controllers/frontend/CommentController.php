@@ -5,7 +5,10 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Comment;
+use App\NestedComment;
 use App\Post;
+use App\User;
+use Auth;
 class CommentController extends Controller
 {
     /**
@@ -46,17 +49,23 @@ class CommentController extends Controller
 
     }
 
-        public function replyStore(Request $request)
+        public function replyStore(Request $request,$id)
     {
-        $reply = new Comment();
+        $reply = new NestedComment();
         $reply->content = $request->get('comment_body');
-        $reply->user()->associate($request->user());
-        $reply->parent_id = $request->get('comment_id');
-        $post = Post::find($request->get('post_id'));
+        $reply->user_id=Auth::user()->id;
+        $reply->comment_id = $request->get('comment_id');
+        $reply->post_id = $request->get('post_id');
+        $reply->save();
+        $reply->replies()->save($reply);
+        $userid=Auth::user()->id;
+       $replies= NestedComment::where(['user_id' => $userid, 'post_id' => $id])
+                    ->orderBy('id','desc')
+                    ->get();
+            $post = Post::find($id);
 
-        $post->comments()->save($reply);
-
-        return back();
+       
+        return view('frontend.post.show',compact('replies','post'));
 
     }
 

@@ -296,6 +296,11 @@
   });
 
 
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

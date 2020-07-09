@@ -8364,7 +8364,8 @@ input:focus {
 }
 .blogger_img{
   border-radius: 60%;
-  height: 60px;
+  height: 70px;
+  width: 60px;
   margin-left: 20px;
   margin-top: 20px;
 }
