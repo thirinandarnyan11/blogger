@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="<?php echo e(asset('frontendtemplate/bloggertemplate/css/icomoon.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('frontendtemplate/bloggertemplate/css/profile.css')); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo e(asset('frontendtemplate/bloggertemplate/css/style.css')); ?>">
-
   <?php echo $__env->yieldContent('style'); ?>
 </head>
 <body>
@@ -29,7 +28,7 @@
      </button>
      <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="<?php echo e(route('blogger')); ?>" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="<?php echo e(route('index')); ?>" class="nav-link">Home</a></li>
          
          <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(Auth::user()->name); ?></a>
@@ -40,7 +39,6 @@
                                         <?php echo e(__('Logout')); ?>
 
                                     </a>
-
                                     <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
                                         <?php echo csrf_field(); ?>
                                     </form>
@@ -56,7 +54,6 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
-
   <script src="<?php echo e(asset('frontendtemplate/bloggertemplate/js/jquery.min.js')); ?>"></script>
   <script src="<?php echo e(asset('frontendtemplate/bloggertemplate/js/jquery-migrate-3.0.1.min.js')); ?>"></script>
   <script src="<?php echo e(asset('frontendtemplate/bloggertemplate/js/popper.min.js')); ?>"></script>
@@ -73,7 +70,6 @@
   <script src="<?php echo e(asset('frontendtemplate/bloggertemplate/js/google-map.js')); ?>"></script>
   <script src="<?php echo e(asset('frontendtemplate/bloggertemplate/js/main.js')); ?>"></script>
  <script src="<?php echo e(asset('frontendtemplate/bloggertemplate/js/summernote.js')); ?>"></script>
- 
  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet"> 
   <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css">
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.
@@ -101,7 +97,7 @@
   4/jquery.js"></script>
   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
-  
+
 </body>
 </html>
 <?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/masterblog.blade.php ENDPATH**/ ?>

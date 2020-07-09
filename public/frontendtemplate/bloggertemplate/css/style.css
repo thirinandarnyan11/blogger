@@ -9350,6 +9350,7 @@ input::placeholder {
 .blogger_img{
   border-radius: 60%;
   height: 70px;
+  width: 60px;
   margin-left: 20px;
   margin-top: 20px;
 }

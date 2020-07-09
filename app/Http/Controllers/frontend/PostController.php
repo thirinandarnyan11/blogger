@@ -8,7 +8,6 @@ use App\Post;
 use Auth;
 use App\SavePost;
 use App\Like;
-use Auth;
 
 class PostController extends Controller
 {
@@ -60,14 +59,21 @@ class PostController extends Controller
     public function store($id)
     {
        $userid=Auth::user()->id;
+       $posts= SavePost::where(['user_id' => $userid, 'post_id' => $id])
+                    ->orderBy('id','desc')
+                    ->first();
+        
+           if(!$posts){
+
         $savepost = new SavePost;
         $savepost->user_id = $userid;
         $savepost->post_id =$id;
-       
-        $savepost->save();
-        $id=Auth::user()->id;
-        $posts=SavePost::where('user_id',$id)->orderBy('id','desc')->get();
         
+        $savepost->save();
+    }
+        /*$id=Auth::user()->id;
+        $posts=SavePost::where('user_id',$id)->orderBy('id','desc')->get();
+        */
         return view('frontend.savedpost',compact('posts'));
 
 

@@ -20,9 +20,9 @@ class FrontendController extends Controller
     function index()
 
     {  
-        
+        $users=User::role('blogger')->get();
         $posts=Post::orderBy('id','desc')->get();
-    	return view('frontend.user',compact('posts'));
+    	return view('frontend.user',compact('posts','users'));
     }
     function video_show(){
     	return view('frontend.video');
@@ -30,8 +30,11 @@ class FrontendController extends Controller
     function saved_video(){
     	return view('frontend.savedvideo');
     }
+    
     function saved_post(){
         $id=Auth::user()->id;
+                    // dd($like_user->user_id);
+        
         $posts=SavePost::where('user_id',$id)->orderBy('id','desc')->get();
         
     	return view('frontend.savedpost',compact('posts'));

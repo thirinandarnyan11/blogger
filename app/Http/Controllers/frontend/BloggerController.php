@@ -44,20 +44,23 @@ class BloggerController extends Controller
             'post_content' => 'required',
             'uploadFile' => 'required',
         ]);
-       /*dd($request->uploadFile);*/
-        if($request->hasfile('uploadFile'))
+
+       $files=$request->file('uploadFile');
+        if(count($files)>0)
         {   
+
             $i=1;
-            foreach($request->file('uploadFile') as $file)
+            foreach($files as $file)
             {
-                $name = time().$i.'.'.$file->extension();
+                $name = time().$i.'.'.$file->getClientOriginalExtension();
+
                 $file->move(public_path('images/post'), $name);
-                dd($name); 
                 $data[] = 'images/post/'.$name;
                 $i++;
+
             }
         }
-         /*if($request->hasfile('updateVideo'))
+         if($request->hasfile('updateVideo'))
         {   
             foreach($request->file('updateVideo') as $videofile)
             {
@@ -65,7 +68,7 @@ class BloggerController extends Controller
                 $videofile->move(public_path('videos/'), $name);  
                 $video = 'videos/'.$name;
             }
-        }*/
+        }
         $post = new Post;
         $post->categories_id = $request->category_id;
         $post->user_id =$id;

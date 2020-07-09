@@ -53,7 +53,7 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav nav ml-auto">
 					<li class="nav-item"><a href="<?php echo e(route('index')); ?>" class="nav-link"><span><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</span></a></li>
-					<li class="nav-item"><a href="<?php echo e(route('video_show')); ?>" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Save</span></a></li>
+					<li class="nav-item"><a href="<?php echo e(route('saved_post')); ?>" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Save</span></a></li>
 					
 					<li class="nav-item dropdown">
               			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
@@ -112,9 +112,10 @@
 <script src="<?php echo e(asset('frontendtemplate/usertemplate/js/jquery.animateNumber.min.js')); ?>"></script>
 <script src="<?php echo e(asset('frontendtemplate/usertemplate/js/scrollax.min.js')); ?>"></script>
 
-<script src="<?php echo e(asset('frontendtemplate/usertemplate/js/main.js')); ?>"></script>
 <script type="text/javascript" src="<?php echo e(asset('frontendtemplate/usertemplate/js/custom.js')); ?>"></script>
 <script src="<?php echo e(asset('frontendtemplate/bloggertemplate/js/like.js')); ?>"></script>
+<script src="<?php echo e(asset('frontendtemplate/usertemplate/js/main.js')); ?>"></script>
+
 
 </body>
 </html><?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/master.blade.php ENDPATH**/ ?>

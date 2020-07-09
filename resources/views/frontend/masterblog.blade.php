@@ -28,7 +28,7 @@
      </button>
      <div class="collapse navbar-collapse" id="ftco-nav">
        <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="{{route('blogger')}}" class="nav-link">Home</a></li>
+         <li class="nav-item"><a href="{{route('index')}}" class="nav-link">Home</a></li>
          {{--<li class="nav-item"><a href="author.html" class="nav-link">Other Bloggers</a></li>--}}
          <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
