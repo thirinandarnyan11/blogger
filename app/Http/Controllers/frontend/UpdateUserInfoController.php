@@ -20,9 +20,10 @@ class UpdateUserInfoController extends Controller
             'address'=> 'required',
             'phone'=>'required'
         ]);
-        
+        dd($id);
+        dd($request->address);
         //Data insert
-        $userdetail=User_detail::find($id);
+        $userdetail=User_detail::where('user_id',$id)->first();
         $userdetail->dob=$request->dob;
         $userdetail->address=$request->address;
         $userdetail->phone=$request->phone;
@@ -32,14 +33,13 @@ class UpdateUserInfoController extends Controller
         return back();
     }
     public function updateprofile(Request $request, $id)
-    {
+     {
         //validation
         $request->validate([
             'profile'=> 'sometimes|mimes:jpeg,bmp,png'
         ]);
         //File Upload
-            $old= $request->oldProfile;
-
+            $old= $request->oldprofile;
         if($request->hasFile('profile')){
             
               if($old=='avatar.png'){
@@ -47,6 +47,7 @@ class UpdateUserInfoController extends Controller
             else{
                 unlink($old);
             }
+             dd($request->profile);
              $imageName=time().'.'.$request->profile->extension();
             
             $request->profile->move(public_path('images/user'),$imageName);
@@ -54,10 +55,10 @@ class UpdateUserInfoController extends Controller
 
         }
        else{
-        $filepath=$request->oldProfile;
+        $filepath=$request->oldprofile;
        }
         //Data update
-       $userdetail=User_detail::find($id);
+       $userdetail=User_detail::where('user_id',$id)->first();
         $userdetail->profile=$filepath;
         
         $userdetail->save();
@@ -91,7 +92,7 @@ class UpdateUserInfoController extends Controller
         $filepath=$request->oldcover;
        }
         //Data update
-       $userdetail=User_detail::find($id);
+       $userdetail=User_detail::where('user_id',$id)->first();
         $userdetail->cover_photo=$filepath;
         
         $userdetail->save();

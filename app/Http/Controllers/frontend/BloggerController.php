@@ -57,7 +57,7 @@ class BloggerController extends Controller
                 $file->move(public_path('images/post'), $name);
                 $data[] = 'images/post/'.$name;
                 $i++;
-
+ 
             }
         }
          if($request->hasfile('updateVideo'))

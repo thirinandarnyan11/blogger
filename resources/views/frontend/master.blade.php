@@ -62,7 +62,7 @@
 			              </div>
 			          </li>--}}
 					<li class="nav-item dropdown">
-              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
 			    
 			    				@if(Auth::user()->getRoleNames()[0] == "user")
@@ -70,7 +70,7 @@
                                     As Request Blogger									
                                     </a>
 									<a class="dropdown-item" href="{{route('userprofile')}}">
-                                        {{Auth::user()->name}}
+                                        Prolfile
                            			</a>
                                @endif 
                                @if(Auth::user()->getRoleNames()[0] == "blogger")  
@@ -130,5 +130,7 @@
 <script type="text/javascript">
 	var token = "{{Session::token()}}";
 </script>
+
+@yield('script')
 </body>
 </html>

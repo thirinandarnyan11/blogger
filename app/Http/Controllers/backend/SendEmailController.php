@@ -8,10 +8,7 @@ use App\Mail\SendMail;
 use App\User;
 
 
-
-class SendEmailController extends Controller
-{
-     
+   
 
 class SendEmailController extends Controller
 {

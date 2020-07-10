@@ -7,7 +7,7 @@
 
 				<div class="col-md-6 text ftco-animate">
 					<div class="author mb-4 d-flex align-items-center">
-						<a href="#" class="img" style="background-image: url({{asset('frontendtemplate/bloggertemplate/images/naychi.jpg);')}})"></a>
+						<a href="#" class="img" style="background-image: url({{$user->user_details->profile}})"></a>
 						<div class="ml-3 info">
 							<span>User</span>
 							<h3><a href="#">{{Auth::user()->name}}</a>, <span>{{$user->user_details->dob}}</span></h3>
@@ -22,7 +22,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-6 js-fullheight img" style="background-image: url({{asset('frontendtemplate/bloggertemplate/images/bg_1.jpg);')}})"></div>
+				<div class="col-md-6 js-fullheight img" style="background-image: url({{$user->user_details->cover_photo}})"></div>
 				
 			</div>
 		</div>
@@ -47,10 +47,10 @@
 		<div class="col-lg-4 d-lg-block d-md-none d-sm-none">
 			<div class="row">
 				<div class="col-lg-9">
-					<h6 class="profic">Basic Info</h6><hr class="hor">
-					<p>Date of Birth <span>{{$user->user_details->dob}}</span></p>
-					<p>Address <span>{{$user->user_details->address}}</span></p>
-					<p>Phone <span>{{$user->user_details->phone}}</span></p>
+					<h3 class="profic">Basic Info</h3><hr class="hor">
+					<h4>Date of Birth <span>{{$user->user_details->dob}}</span></h4>
+					<h4>Address <span>{{$user->user_details->address}}</span></h4>
+					<h4>Phone <span>{{$user->user_details->phone}}</span></h4>
 					{{--<p>Email <span>{{$user->email}}</span></p>--}}
 				</div>
 				<div class="col-lg-3">
@@ -97,7 +97,7 @@
 				</div>
 			<div class="row">
 				<div class="col-lg-9">
-					<h6 class="profic">Edit Profile</h6><hr class="hor">
+					<h3 class="profic">Edit Profile</h3><hr class="hor">
 					<img src="{{$user->user_details->profile}}" class="coverphoto">
 				</div>
 				<div class="col-lg-3">
@@ -106,7 +106,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Edit Profile</h6>
+									<h3 class="modal-title profic" id="exampleModalLabel">Edit Profile</h3>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
@@ -145,7 +145,7 @@
 			</div>
 			<div class="row mt-4">
 				<div class="col-lg-9">
-					<h6 class="profic">Edit Cover Photo</h6><hr class="hor">
+					<h3 class="profic">Edit Cover Photo</h3><hr class="hor">
 					<img src="{{$user->user_details->cover_photo}}" class="coverphoto">
 				</div>
 				<div class="col-lg-3">
@@ -154,7 +154,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title profic" id="coverphoto">Edit Cover Photo</h6>
+									<h3 class="modal-title profic" id="coverphoto">Edit Cover Photo</h3>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
@@ -191,37 +191,7 @@
 					</div>
 				</div>
 			</div>
-			{{--<div class="row">
-				<div class="col-lg-8 mt-4">
-					<button type="button" class="btn btn-outline-primary btn-md" data-toggle="modal" data-target="#changepsw" data-whatever="@getbootstrap">Change Password</button>
-					<div class="modal fade" id="changepsw" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Change Password</h6>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<form>
-										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">New Password</label>
-											<input type="text" class="form-control" id="">
-										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Change</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-				</div>
-			</div>--}}
+			
 		</div>
 	</div>
 

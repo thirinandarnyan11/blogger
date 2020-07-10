@@ -14,7 +14,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-          <h1>Create Post</h1>
+          <a class="" href="{{ route('blogger') }}"><h1>Create Post</h1></a>
           </div>
           <div class="card-body">
           <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
@@ -44,8 +44,8 @@
                   <input type="file" id="uploadFile" name="uploadFile[]" multiple/>
                 </div>
               </div>
-               {{--<div id="image_preview"></div>
-               <div class="form-group row">
+               <div id="image_preview"></div>
+               {{--<div class="form-group row">
                 <label for="categoryName" class="col-sm-2 col-form-label">Video</label>
                 <div class="col-sm-10">
                   <input type="file" id="uploadVideo" name="uploadVideo" multiple/>

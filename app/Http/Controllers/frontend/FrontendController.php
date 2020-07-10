@@ -54,6 +54,13 @@ class FrontendController extends Controller
         return view('frontend.userprofile',compact('post','user'));
     }
 
+        function profile($id){
+        //$id=Auth::user()->id;
+        $user=User::find($id);
+        $post=Post::where('user_id',$id)->orderBy('id','desc')->get();
+        return view('frontend.profile',compact('post','user'));
+    }
+
     public function requestblogger($id){
         $user=User::find($id);
         $user->status=1;

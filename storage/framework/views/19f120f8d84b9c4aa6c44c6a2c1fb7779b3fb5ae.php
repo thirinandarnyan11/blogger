@@ -10,11 +10,9 @@
 							<div class="comment_card" data-depth="0">
 								<figure class="figure">
 									<figcaption class="fig_caption" id="showdata">
-
 										<?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 										<h1><?php echo e($user->name); ?></h1>
 										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
 									</figcaption>
 								</figure>
 							</div>
@@ -26,14 +24,25 @@
 		<!-- </div> -->
 	</div>
 	<div class="col-lg-5 col-md-12 col-sm-12 d-block" style="margin-top:40px;">
+		<?php if($message=Session::get('save')): ?>
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">
+                            X
+                        </button>
+                        <strong><?php echo e($message); ?></strong>
+                    </div>
+                      
+                <?php endif; ?>
+
 		<?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 		<div class="card shadow-lg p-3 mb-5 bg-white rounded">
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-3">
-					<img src="<?php echo e($row->user->user_details->profile); ?>" class="img-fluid blogger_img">
+					<a href="<?php echo e(route('profile',$row->user->id)); ?>"><img src="<?php echo e($row->user->user_details->profile); ?>" class="img-fluid blogger_img"></a>
 				</div>
 				<div class="col-lg-9 col-md-9 col-sm-9 mt-2">
-					<h4><?php echo e($row->user->name); ?></h4>
+					<a href="<?php echo e(route('profile',$row->user->id)); ?>">
+                        <h4><?php echo e($row->user->name); ?></h4></a>
 					<p><?php echo $row->post_content; ?></p>
 				</div>
 				<?php
@@ -46,25 +55,12 @@
 				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			</div>
 			<div class="row">
-<<<<<<< HEAD
 				<div class="col-lg-4 col-md-3 col-sm-3 ml-lg-5 mt-3">
-					<a href="<?php echo e(route('like',$row->id)); ?>" ><span style="font-size: 15px;" class="icon icon-heart-o" id="like">&nbsp;Likes&nbsp;</span></a>
-=======
-				<div class="col-lg-3 col-md-3 col-sm-3 ml-lg-5 mt-3">
-				<button class="likebtn" id="like"><a href="<?php echo e(route('like',$row->id)); ?>" ><span style="font-size: 15px;" class="icon icon-heart-o">&nbsp;<span id="text">Likes</span>&nbsp;</a></button>
 					
-
-                   
->>>>>>> bba15898e79b3f75f8b3877924d582ea83aff7d4
+					<span style="font-size: 15px;color: #08086f;" class="icon icon-heart-o"><button class="like_<?php echo e($row->id); ?> likeBtn" data-postid="<?php echo e($row->id); ?>">&nbsp;Likes&nbsp;</button></span>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
-<<<<<<< HEAD
-					<a href="<?php echo e(route('post.show', $row->id)); ?>"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</a>                       
-					</span>
-=======
 					<a href="<?php echo e(route('post.show', $row->id)); ?>"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</span></a>                         
-					
->>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 mt-2 mt-3">
 					<a href="<?php echo e(route('userpost.store', $row->id)); ?>">
@@ -97,57 +93,50 @@
 							</figure>
 						</div>
 					</li>
-
 				</ul> 
 			</section>
-
 		</div>
 	</div>
-<<<<<<< HEAD
-
-	<script type="text/javascript">
-=======
-   <script type="text/javascript">
->>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
+	<?php $__env->startSection('script'); ?>
+    <script type="text/javascript">
 		$(document).ready(function(){
-			fetch_customer_data();
-			function fetch_customer_data(query = '')
-			{
-				$.ajax({
-					url:"<?php echo e(route('index.useraction')); ?>",
-					method:'GET',
-					data:{query:query},
-					dataType:'json',
-					success:function(data)
-					{
-						$('#showdata').html(data.table_data);
-						$('#total_records').text(data.total_data);
-					}
-				})
-			}
-			$(document).on('keyup','#search',function(){
-				var query = $(this).val();
-				fetch_customer_data(query);
+
+				$('.likeBtn').on('click',function(){
+				//var like_s = $(this).attr('data-like');
+		
+					var post_id = $(this).data('postid');
+					// alert(post_id);
+					 $.ajaxSetup({
+					 	headers: {
+					 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					 	}
+					 });
+					 $.ajax({
+					 	url:"<?php echo e(route('like','post_id')); ?>",
+					 	method:'GET',
+					 	data:{post_id: post_id},
+					 	success:function(data)
+					 	{
+					 		//var dd=$.parseJSON(data);
+					 		var dd=JSON.parse(data);
+					 		//console.log(dd['is_like']);
+					 		//console.log(dd['likes']);
+					 		//console.log(post_id);
+					 		if(post_id == dd['likes']){
+					 			if(dd['is_like'] ==1){
+					 			$('.like_'+post_id).html("Unlikes");
+					 			}
+					 			else{
+					 				$('.like_'+post_id).html("Likes");
+					 			}
+					 		}
+					 	}
+					 });	
+
 			});
-
-			
-			// $('.likebtn').on('click',function(event){
-
-			// 	var id= this.id;
-			// 	$.ajax({
-			// 		url:'/like/{id}',
-			// 		method:'GET',
-			// 		data:{id:id},
-			// 		success:function(data)
-			// 		{
-			// 			console.log("Hello");
-			// 		}
-			// 	})
-			// })
-
 		});
-	
 	</script>
-
 	<?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('frontend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/user.blade.php ENDPATH**/ ?>

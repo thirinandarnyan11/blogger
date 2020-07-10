@@ -48,7 +48,7 @@
 					<li class="nav-item"><a href="<?php echo e(route('saved_post')); ?>" class="nav-link"><span><i class="icon icon-play"></i>&nbsp;&nbsp;Save</span></a></li>
 					
 					<li class="nav-item dropdown">
-              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+              			<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(Auth::user()->name); ?></a>
 			              <div class="dropdown-menu" aria-labelledby="dropdown04">
 			    
 			    				<?php if(Auth::user()->getRoleNames()[0] == "user"): ?>
@@ -56,8 +56,7 @@
                                     As Request Blogger									
                                     </a>
 									<a class="dropdown-item" href="<?php echo e(route('userprofile')); ?>">
-                                        <?php echo e(Auth::user()->name); ?>
-
+                                        Prolfile
                            			</a>
                                <?php endif; ?> 
                                <?php if(Auth::user()->getRoleNames()[0] == "blogger"): ?>  
@@ -119,5 +118,7 @@
 <script type="text/javascript">
 	var token = "<?php echo e(Session::token()); ?>";
 </script>
+
+<?php echo $__env->yieldContent('script'); ?>
 </body>
 </html><?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/master.blade.php ENDPATH**/ ?>

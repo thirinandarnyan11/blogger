@@ -5,12 +5,12 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Category;
 use App\Post;
 use App\Like;
 use DB;
-use Auth;
 use App\SavePost;
-use App\Like;
+
 
 
 class PostController extends Controller
@@ -26,62 +26,47 @@ class PostController extends Controller
         return view('frontend.user',compact('posts'));
     }
 
-    public function like($id){
-       
-        $user= Auth::user()->id;
-        $like_user= Like::where(['user_id' => $user, 'post_id' => $id])
-                    ->first();
-                    // dd($like_user->user_id);
-        $likes_count = Like::where('user_id', Auth::user()->id)->count();
-        //dd($likes_count);
-        // foreach ($like_user as $user) {
-           if(!$like_user){
-            $user_id= Auth::user()->id;
-            $post_id= $id;
-            $likes=new Like;
-            $likes->user_id = $user_id;
-            $likes->islike =1;
-            $likes->post_id = $post_id;
-            $likes->save();
-            
-        }
-        return back();
+    public function editshow($id){
+        $categories=Category::all();
+        $post=Post::find($id);
+        return view('frontend.editpost',compact('categories','post'));
     }
 
-    //using ajax
-    // public function like(Request $request){
+   public function like(Request $request){
 
-    //     // $like_s = $request->like_s;
-    //     $post_id = $request->post_id;
+        // $like_s = $request->like_s;
+        $post_id = $request->post_id;
+        //dd($post_id);
 
-    //     $like = DB::table('likes')
-    //             ->where('post_id' , $post_id)
-    //             ->where('user_id', Auth::user()->id)
-    //             ->first();
+        $like = DB::table('likes')
+                ->where('post_id' , $post_id)
+                ->where('user_id', Auth::user()->id)
+                ->first();
 
-    //     if(!$like)
-    //     {
-    //         $new_like = new Like;
-    //         $new_like->post_id = $post_id;
-    //         $new_like->user_id = Auth::user()->id;
-    //         $new_like->islike = 1;
-    //         $new_like->save();
-    //         $is_like = 1;
-    //     }
-    //     elseif ($like->islike ==1)
-    //     {
-    //         DB::table('likes')
-    //         ->where('post_id' , $post_id)
-    //         ->where('user_id', Auth::user()->id)
-    //         ->delete();
-    //         $is_like = 0;
+        if(!$like)
+        {
+            $new_like = new Like;
+            $new_like->post_id = $post_id;
+            $new_like->user_id = Auth::user()->id;
+            $new_like->islike = 1;
+            $new_like->save();
+            $is_like = 1;
+        }
+        elseif ($like->islike ==1)
+        {
+            DB::table('likes')
+            ->where('post_id' , $post_id)
+            ->where('user_id', Auth::user()->id)
+            ->delete();
+            $is_like = 0;
             
-    //     }
-    //    $data= array(
-    //             'is_like' => $is_like,
-    //         );
-    //     echo json_encode($is_like);
-    // }
+        }
+        $data= array(
+                'likes' => $post_id,
+                'is_like' => $is_like,
+            );
+      echo json_encode($data);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -113,11 +98,15 @@ class PostController extends Controller
         $savepost->post_id =$id;
         
         $savepost->save();
-    }
+        return back()->with('save','You saved this post');
+
+        }
         /*$id=Auth::user()->id;
         $posts=SavePost::where('user_id',$id)->orderBy('id','desc')->get();
         */
-        return view('frontend.savedpost',compact('posts'));
+        else{
+            return back()->with('save','You saved this post!So this post does not need to save');
+        }
 
 
     }
@@ -133,6 +122,13 @@ class PostController extends Controller
             $post = Post::find($id);
 
             return view('frontend/post/show', compact('post'));
+
+    }
+    public function bloggershow($id)
+    {
+            $post = Post::find($id);
+
+            return view('frontend/post/bloggershow', compact('post'));
 
     }
 
@@ -154,10 +150,61 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+        public function update(Request $request, $id)
     {
-        //
+         //validation
+       $userid=Auth::user()->id;
+
+        $request->validate([
+            'category_id' => 'required',
+
+            'post_content'=> 'required',
+            
+        ]);
+        $old=$request->oldphoto;
+
+        if ($request->hasFile('photo')) {
+
+           $files=$request->file('photo');
+           $i=1;
+                foreach($files as $img)
+                {
+                   $name = time().$i.'.'.$img->getClientOriginalExtension();
+
+                    $img->move(public_path('images/post'), $name);
+                    $data[] = 'images/post/'.$name;
+                    $i++;
+
+                }
+
+            $data=json_encode($data);
+            // unlink($old);
+            /*$decold=json_decode($old);
+            foreach($decold as $dc)
+            {
+                unlink($dc);
+            }*/
+        }
+        else
+        {
+            $data=$request->oldphoto;
+        }
+
+        //Data insert
+        $post = Post::find($id);
+        $post->categories_id = $request->category_id;
+        $post->post_content  = $request->post_content;
+        $post->photo=$data;
+        $post->user_id =$userid;
+       
+        
+        $post->save();
+
+        //return
+        return redirect()->route('blogger')->with('success', 'Post Update  successfully');
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
