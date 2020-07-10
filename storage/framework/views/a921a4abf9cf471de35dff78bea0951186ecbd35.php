@@ -13,7 +13,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-          <h1>Create Post</h1>
+          <a class="" href="<?php echo e(route('blogger')); ?>"><h1>Create Post</h1></a>
           </div>
           <div class="card-body">
           <form action="<?php echo e(route('post.store')); ?>" method="post" enctype="multipart/form-data">
@@ -45,12 +45,7 @@
                 </div>
               </div>
                <div id="image_preview"></div>
-               <div class="form-group row">
-                <label for="categoryName" class="col-sm-2 col-form-label">Video</label>
-                <div class="col-sm-10">
-                  <input type="file" id="uploadVideo" name="uploadVideo" multiple/>
-                </div>
-              </div>
+               
               <div class="form-group row mt-5">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-8">

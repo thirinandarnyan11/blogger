@@ -31,10 +31,7 @@
        <ul class="navbar-nav" style="float: right;">
          <li class="nav-item"><a href="{{route('index')}}" class="nav-link" style="color: white;font-size: 15px;"><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</a></li>
 
-       <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="{{route('index')}}" class="nav-link">Home</a></li>
-         {{--<li class="nav-item"><a href="author.html" class="nav-link">Other Bloggers</a></li>--}}
-
+      
          <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;font-size: 15px;">{{Auth::user()->name}}</a>
            <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -102,6 +99,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
-
+@yield('script')
 </body>
 </html>

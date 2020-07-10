@@ -1,4 +1,4 @@
-<?php $__env->startSection('usercontent'); ?>
+<?php $__env->startSection('bloggercontent'); ?>
 
 <div class="container">
 
@@ -14,10 +14,14 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-3 col-sm-3">
-                        <img src="<?php echo e(asset($post->user->user_details->profile)); ?>" class="img-fluid blogger_img">
+                        <a class="" href="<?php echo e(route('blogger')); ?>">
+                            <img src="<?php echo e(asset($post->user->user_details->profile)); ?>" class="img-fluid blogger_img">
+                        </a>
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-9 mt-2">
-                        <h4><?php echo e($post->user->name); ?></h4>
+                        <a class="" href="<?php echo e(route('blogger')); ?>">
+                            <h4><?php echo e($post->user->name); ?></h4>
+                        </a>
 
                         <p><?php echo $post->post_content; ?></p>
                     </div>
@@ -33,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-3 col-sm-3 ml-lg-5 mt-3">
-                       <span style="font-size: 15px;color: #08086f;" class="icon icon-heart-o"><button class="like_<?php echo e($post->id); ?> likeBtn" data-postid="<?php echo e($post->id); ?>">&nbsp;Likes&nbsp;</button></span>
+                       <button class="like" data-postid="<?php echo e($post->id); ?>"><span style="font-size: 15px;" class="icon icon-heart-o" id="like">&nbsp;Likes&nbsp;</span></button>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
                         <a href="<?php echo e(route('post.show', $post->id)); ?>"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comments&nbsp;</span></a>                         
@@ -93,46 +97,6 @@
     </div>
 </div>
 </div>
-<?php $__env->startSection('script'); ?>
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-                $('.likeBtn').on('click',function(){
-                //var like_s = $(this).attr('data-like');
-        
-                    var post_id = $(this).data('postid');
-                    // alert(post_id);
-                     $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                     });
-                     $.ajax({
-                        url:"<?php echo e(route('like','post_id')); ?>",
-                        method:'GET',
-                        data:{post_id: post_id},
-                        success:function(data)
-                        {
-                            //var dd=$.parseJSON(data);
-                            var dd=JSON.parse(data);
-                            //console.log(dd['is_like']);
-                            //console.log(dd['likes']);
-                            //console.log(post_id);
-                            if(post_id == dd['likes']){
-                                if(dd['is_like'] ==1){
-                                $('.like_'+post_id).html("Unlikes");
-                                }
-                                else{
-                                    $('.like_'+post_id).html("Likes");
-                                }
-                            }
-                        }
-                     });    
-
-            });
-        });
-    </script>
-    <?php $__env->stopSection(); ?>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('frontend.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/post/show.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('frontend.masterblog', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/post/bloggershow.blade.php ENDPATH**/ ?>

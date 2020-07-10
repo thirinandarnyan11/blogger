@@ -47,70 +47,28 @@
 		<div class="col-lg-4 d-lg-block d-md-none d-sm-none">
 			<div class="row">
 				<div class="col-lg-9">
-					<h4 class="profic">Basic Info</h4><hr class="hor">
-					<p>Date of Birth <span>{{$user->user_details->dob}}</span></p>
-					<p>Address <span>{{$user->user_details->address}}</span></p>
-					<p>Phone <span>{{$user->user_details->phone}}</span></p>
+					<h3 class="profic">Basic Info</h3><hr class="hor">
+					<h4>Date of Birth <span>{{$user->user_details->dob}}</span></h4>
+					<h4>Address <span>{{$user->user_details->address}}</span></h4>
+					<h4>Phone <span>{{$user->user_details->phone}}</span></h4>
 					{{--<p>Email <span>{{$user->email}}</span></p>--}}
 				</div>
 				<div class="col-lg-3">
-					<button type="submit" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#basicinfo" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
+					<button type="submit" class="btn btn-outline-primary btn-md" data-toggle="modal" data-target="#basicinfo" data-whatever="@getbootstrap" style="background: #08086f;color: white;"><i class="icon-edit"></i></button>
 					<div class="modal fade" id="basicinfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title profic" id="exampleModalLabel">Edit Basic Info</h4>
+									<h6 class="modal-title profic" id="exampleModalLabel">Edit Basic Info</h6>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="{{route('updateinfo',$user->id)}}" method="POST">
+									<form action="{{route('updateuserinfo',$user->id)}}" method="POST">
 										@csrf
-                    					
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Date of Birth</label>
-
-											<input type="Date" class="form-control" id="" value="{{$user->user_details->dob}}">
-										</div>
-										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">Address</label>
-											<textarea type="" class="form-control text-left">{{$user->user_details->address}}
-											</textarea>
-										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Change</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-9">
-					<h6 class="profic">Contact Info</h6><hr class="hor">
-					<p>Phone <span>{{$user->user_details->phone}}</span></p>
-					<p>Email <span>{{$user->email}}</span></p>
-				</div>
-				<div class="col-lg-3">
-					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#contactinfo" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
-					<div class="modal fade" id="contactinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title profic" id="exampleModalLabel">Edit Contact Info</h4>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<form>
-										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">Phone</label>
-											<input type="text" class="form-control" id="" value="{{$user->user_details->phone}}">
 											<input type="text" class="form-control" id="dob" name="dob" value="{{$user->user_details->dob}}">
 										</div>
 										<div class="form-group">
@@ -121,66 +79,47 @@
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Phone</label>
 											<input type="text" class="form-control" id="phone" name="phone" value="{{$user->user_details->phone}}">
-
 										</div>
 										{{--<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Email</label>
-
-											<input type="email" class="form-control" id="" value="{{$user->email}}">
-										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-
 											<input type="email" class="form-control" id="email" name="email" value="{{$user->email}}">
 										</div>--}}
 										<div class="modal-footer">
-
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 									<button type="submit" class="btn btn-primary">Change</button>
 								</div>
 									</form>
 								</div>
-								
 							</div>
 						</div>
 					</div>
 				</div>
-					
 				</div>
-
 			<div class="row">
 				<div class="col-lg-9">
-					<h6 class="profic">Edit Profile</h6><hr class="hor">
+					<h3 class="profic">Edit Profile</h3><hr class="hor">
 					<img src="{{$user->user_details->profile}}" class="coverphoto">
 				</div>
 				<div class="col-lg-3">
-					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
+					<button type="button" class="btn btn-outline-primary btn-md" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" style="background: #08086f;color: white;"><i class="icon-edit"></i></button>
 					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Edit Profile</h6>
+									<h3 class="modal-title profic" id="exampleModalLabel">Edit Profile</h3>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="{{route('updateprofile',$user->id)}}" method="POST" enctype="multipart/form-data">
+									<form action="{{route('updateuseprofile',$user->id)}}" method="POST" enctype="multipart/form-data">
 										@csrf
 										<div class="form-group">
-
-											<label for="recipient-name" class="col-form-label">Cover Photo</label>
-											<input type="file" class="form-control" id="">
-											<img src="{{$user->user_details->profile}}" class="coverphoto mt-2">
-
 											<label for="recipient-name" class="col-form-label">Profile Photo</label>
 											<nav>
 							                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
 							                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Old Profile</a>
-
 							                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">New Profile</a>
-							   
 							                    </div>
                 							</nav>
 							                <div class="tab-content" id="nav-tabContent">
@@ -196,11 +135,9 @@
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 											<button type="submit" class="btn btn-primary">Change</button>
-
 										</div>
 									</form>
 								</div>
-								
 							</div>
 						</div>
 					</div>
@@ -208,22 +145,22 @@
 			</div>
 			<div class="row mt-4">
 				<div class="col-lg-9">
-					<h6 class="profic">Edit Cover Photo</h6><hr class="hor">
+					<h3 class="profic">Edit Cover Photo</h3><hr class="hor">
 					<img src="{{$user->user_details->cover_photo}}" class="coverphoto">
 				</div>
 				<div class="col-lg-3">
-					<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#coverphoto" data-whatever="@getbootstrap"><i class="icon-edit"></i></button>
+					<button type="button" class="btn btn-outline-primary btn-md" data-toggle="modal" data-target="#coverphoto" data-whatever="@getbootstrap" style="background: #08086f;color: white;"><i class="icon-edit"></i></button>
 					<div class="modal fade" id="coverphoto" tabindex="-1" role="dialog" aria-labelledby="coverphoto" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h6 class="modal-title profic" id="coverphoto">Edit Cover Photo</h6>
+									<h3 class="modal-title profic" id="coverphoto">Edit Cover Photo</h3>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
 								<div class="modal-body">
-									<form action="{{route('updatecover',$user->id)}}" method="POST" enctype="multipart/form-data">
+									<form action="{{route('updateusercover',$user->id)}}" method="POST" enctype="multipart/form-data">
 										@csrf
 										<div class="form-group">
 											<label for="recipient-name" class="col-form-label">Cover Photo</label>
@@ -231,7 +168,6 @@
 							                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
 							                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-cover" role="tab" aria-controls="nav-cover" aria-selected="true">Old Cover</a>
 							                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-coverphoto" role="tab" aria-controls="nav-profile" aria-selected="false">New Cover</a>
-							   
 							                    </div>
                 							</nav>
 							                <div class="tab-content" id="nav-tabContent">
@@ -255,40 +191,20 @@
 					</div>
 				</div>
 			</div>
-			{{--<div class="row">
-				<div class="col-lg-8 mt-4">
-					<button type="button" class="btn btn-outline-primary btn-md" data-toggle="modal" data-target="#changepsw" data-whatever="@getbootstrap">Change Password</button>
-					<div class="modal fade" id="changepsw" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h6 class="modal-title profic" id="exampleModalLabel">Change Password</h6>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<form>
-										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">New Password</label>
-											<input type="text" class="form-control" id="">
-										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Change</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-
-				</div>
-			</div>--}}
+			
+			
 		</div>
+                
 		<div class="col-lg-6 col-md-12 col-sm-12 d-block">
+			@if($message=Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">
+                            X
+                        </button>
+                        <strong>{{$message}}</strong>
+                    </div>
+                      
+                @endif
                 @foreach($post as $row)
 
         <div class="card shadow-lg p-3 mb-5 bg-white rounded">
@@ -297,10 +213,19 @@
                    <img src="{{$row->user->user_details->profile}}" class="img-fluid blogger_img">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 mt-2">
-                	<h4>{{$row->user->name}}</h4>
-
-                    <p>{!!$row->post_content!!}</p>
+                	<div class="row">
+                		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                			
+                			<h4>{{$row->user->name}}</h4>
+                		</div>
+                		<div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                			<a href="{{route('editpost',$row->id)}}"><button type="submit" class="btn btn-outline-primary btn-sm"><i class="icon-edit"></i></button></a>
+					
+	                   	</div>
+	                </div>
+	                   	<p>{!!$row->post_content!!}</p>
                 </div>
+                	
                     @php
                     $photo=json_decode($row->photo);
                     @endphp
@@ -313,14 +238,16 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-3 col-sm-3 ml-lg-5 mt-3">
-                    <span style="font-size: 15px;" class="icon icon-heart-o">&nbsp;&nbsp;Likes</span>
+                    <span style="font-size: 15px;color: #08086f;" class="icon icon-heart-o"><button class="like_{{$row->id}} likeBtn" data-postid="{{$row->id}}">&nbsp;Likes&nbsp;</button></span>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 mt-2 mt-3">
-                    <a href="{{ route('post.show', $row->id) }}"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comment&nbsp;</a>                         
+                    <a href="{{ route('post.bloggershow', $row->id) }}"><span style="font-size: 15px;" class="icon icon-comment-o">&nbsp;Comment&nbsp;</a>                         
                     </span>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 mt-2 mt-3">
-                    <span style="font-size: 15px;" class="icon icon-bookmark-o">&nbsp;Saves&nbsp;</span>
+                    <a href="{{ route('userpost.store', $row->id) }}">
+                        <span style="font-size: 15px;" class="icon icon-bookmark-o">&nbsp;Saves&nbsp;</span>
+                    </a>
                 </div>
 
             </div>
@@ -336,4 +263,45 @@
 	</div>
 
 </div>
+@section('script')
+    <script type="text/javascript">
+		$(document).ready(function(){
+
+				$('.likeBtn').on('click',function(){
+				//var like_s = $(this).attr('data-like');
+		
+					var post_id = $(this).data('postid');
+					// alert(post_id);
+					 $.ajaxSetup({
+					 	headers: {
+					 		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					 	}
+					 });
+					 $.ajax({
+					 	url:"{{route('like','post_id')}}",
+					 	method:'GET',
+					 	data:{post_id: post_id},
+					 	success:function(data)
+					 	{
+					 		//var dd=$.parseJSON(data);
+					 		var dd=JSON.parse(data);
+					 		//console.log(dd['is_like']);
+					 		//console.log(dd['likes']);
+					 		//console.log(post_id);
+					 		if(post_id == dd['likes']){
+					 			if(dd['is_like'] ==1){
+					 			$('.like_'+post_id).html("Unlikes");
+					 			}
+					 			else{
+					 				$('.like_'+post_id).html("Likes");
+					 			}
+					 		}
+					 	}
+					 });	
+
+			});
+		});
+	</script>
+	@endsection
 @endsection
+

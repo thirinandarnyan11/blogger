@@ -27,14 +27,11 @@
        <span class="oi oi-menu"></span> 
      </button>
      <div class="collapse navbar-collapse" id="ftco-nav">
-<<<<<<< HEAD
+
        <ul class="navbar-nav" style="float: right;">
          <li class="nav-item"><a href="<?php echo e(route('index')); ?>" class="nav-link" style="color: white;font-size: 15px;"><i class="icon icon-home2"></i>&nbsp;&nbsp;Home</a></li>
-=======
-       <ul class="navbar-nav ml-auto">
-         <li class="nav-item"><a href="<?php echo e(route('index')); ?>" class="nav-link">Home</a></li>
-         
->>>>>>> 8aa74faf63fbe7b414b730217a0c279ac3d7d496
+
+      
          <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;font-size: 15px;"><?php echo e(Auth::user()->name); ?></a>
            <div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -102,7 +99,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
-
+<?php echo $__env->yieldContent('script'); ?>
 </body>
 </html>
 <?php /**PATH /opt/lampp/htdocs/blogger/resources/views/frontend/masterblog.blade.php ENDPATH**/ ?>

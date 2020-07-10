@@ -1,5 +1,5 @@
-@extends('frontend.master')
-@section('usercontent')
+@extends('frontend.masterblog')
+@section('bloggercontent')
 
 <div class="container">
 
@@ -15,10 +15,14 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-3 col-sm-3">
-                        <img src="{{asset($post->user->user_details->profile)}}" class="img-fluid blogger_img">
+                        <a class="" href="{{ route('blogger') }}">
+                            <img src="{{asset($post->user->user_details->profile)}}" class="img-fluid blogger_img">
+                        </a>
                     </div>
                     <div class="col-lg-9 col-md-9 col-sm-9 mt-2">
-                        <h4>{{$post->user->name}}</h4>
+                        <a class="" href="{{ route('blogger') }}">
+                            <h4>{{$post->user->name}}</h4>
+                        </a>
 
                         <p>{!!$post->post_content!!}</p>
                     </div>
